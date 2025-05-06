@@ -1,0 +1,17 @@
+sonarcloud:
+  organization: zuly
+  projectKey: zulyu_Striking-Vipers
+
+scanner:
+  version: "7.1.0.4889"
+
+python:
+  version: "3.7"
+  coverage:
+    reportPaths: coverage.xml
+  xunit:
+    reportPath: test-results.xml
+
+exclusions:
+  - "tests/**/*"
+  - "**/test_*.py" 

@@ -32,7 +32,16 @@ jobs:
           pytest --cov=app --cov-report=xml:coverage.xml
           
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.10
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=zulyu_Striking-Vipers
+            -Dsonar.organization=zuly
+            -Dsonar.python.version=3.7
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.sources=app
+            -Dsonar.tests=tests 
