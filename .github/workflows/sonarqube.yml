@@ -21,6 +21,10 @@ jobs:
         with:
           python-version: '3.11'
           
+      - name: Install SDL2 dependencies
+        run: |
+          brew install sdl2 sdl2_image sdl2_mixer sdl2_ttf
+          
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
