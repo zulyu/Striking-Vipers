@@ -1,4 +1,4 @@
-name: SonarQube Scan
+name: SonarCloud Scan
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   sonarqube:
-    name: SonarQube Scan
+    name: SonarCloud Scan
     runs-on: macos-latest
     
     steps:
@@ -31,17 +31,8 @@ jobs:
         run: |
           pytest --cov=app --cov-report=xml:coverage.xml
           
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1.10
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with:
-          scanner-version: "7.1.0.4889"
-          scanner-args: |
-            -Dsonar.projectKey=zulyu_Striking-Vipers
-            -Dsonar.organization=zuly
-            -Dsonar.python.version=3.7
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=app
-            -Dsonar.tests=tests 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
