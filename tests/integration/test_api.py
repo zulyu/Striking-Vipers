@@ -1,6 +1,6 @@
 import pytest
 from app import create_app, db
-from app.models import Teacher, Class, Student
+from app.models import Teacher, Class as ClassModel, Student
 
 @pytest.fixture
 def app():
@@ -16,7 +16,7 @@ def client(app):
     return app.test_client()
 
 def test_create_teacher(client):
-    response = client.post('/api/api/teachers', json={
+    response = client.post('/api/teachers', json={
         'name': 'John Doe',
         'email': 'jdoe@example.com',
         'subject': 'Computer Science'
@@ -37,7 +37,7 @@ def test_create_class(client):
     db.session.add(teacher)
     db.session.commit()
 
-    response = client.post('/api/api/classes', json={
+    response = client.post('/api/classes', json={
         'id': 'CS101',
         'capacity': 30,
         'teacher_id': teacher.id
@@ -57,7 +57,7 @@ def test_create_student(client):
     db.session.add(teacher)
     db.session.commit()
 
-    classroom = Class(
+    classroom = ClassModel(
         id='CS101',
         capacity=30,
         teacher_id=teacher.id
@@ -65,7 +65,7 @@ def test_create_student(client):
     db.session.add(classroom)
     db.session.commit()
 
-    response = client.post('/api/api/students', json={
+    response = client.post('/api/students', json={
         'name': 'Jane Smith',
         'email': 'jsmith@example.com',
         'grade': '10',

@@ -10,7 +10,7 @@ class Teacher(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     subject = db.Column(db.String(100), nullable=False)
-    classes = db.relationship("Class", backref="teacher", lazy=True)
+    classes = db.relationship("app.models.Class", backref="teacher", lazy=True)
 
 
 class Class(db.Model):
@@ -19,7 +19,7 @@ class Class(db.Model):
     id = db.Column(db.String(10), primary_key=True)
     capacity = db.Column(db.Integer, nullable=False)
     teacher_id = db.Column(db.Integer, db.ForeignKey("teacher.id"), nullable=False)
-    students = db.relationship("Student", backref="class_ref", lazy=True)
+    students = db.relationship("app.models.Student", backref="class_ref", lazy=True)
 
 
 class Student(db.Model):

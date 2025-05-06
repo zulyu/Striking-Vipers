@@ -1,8 +1,8 @@
 """API routes for managing teachers, classes, and students."""
 
-from flask import request
+from flask import request, url_for
 from flask_restx import Resource, fields
-from app.database.models import Teacher, Class, Student
+from app.models import Teacher, Class, Student
 from app import db
 from .spec import api_spec
 
