@@ -1,0 +1,19 @@
+version: 1.0
+runtime: python3.9
+entrypoint: gunicorn -b :8080 app:create_app('production')
+
+env_variables:
+  DATABASE_URL: "mysql+pymysql://root:CPSC498@localhost/StrikingVipers"
+  SECRET_KEY: "your-secret-key"
+
+build:
+  commands:
+    - pip install -r requirements.txt
+    - python init_db.py
+
+health_check:
+  path: "/api/health"
+  interval: 30
+  timeout: 5
+  healthy_threshold: 2
+  unhealthy_threshold: 3 

@@ -1,0 +1,29 @@
+[MASTER]
+# Add the SQLAlchemy extension
+extension-pkg-whitelist=flask_sqlalchemy
+
+[MESSAGES CONTROL]
+# Disable specific warnings
+disable=C0111,  # missing-docstring (already handled with explicit docstrings)
+        R0903,  # too-few-public-methods (normal for SQLAlchemy models)
+        E1101,  # no-member (SQLAlchemy adds members dynamically)
+        R0401,  # cyclic-import (handled through proper structuring)
+        C0415   # import-outside-toplevel (needed for Flask blueprints)
+
+[FORMAT]
+# Maximum line length
+max-line-length=100
+
+[BASIC]
+# Good variable names
+good-names=id,db,bp,ns
+
+[SIMILARITIES]
+# Minimum lines for duplicate code
+min-similarity-lines=7
+
+[DESIGN]
+# Maximum number of attributes for a class
+max-attributes=10
+# Maximum number of public methods for a class
+max-public-methods=20 
