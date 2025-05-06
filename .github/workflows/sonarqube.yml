@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.7'
+          python-version: '3.11'
           
       - name: Install dependencies
         run: |
@@ -41,7 +41,7 @@ jobs:
           args: >
             -Dsonar.projectKey=zulyu_Striking-Vipers
             -Dsonar.organization=zuly
-            -Dsonar.python.version=3.7
+            -Dsonar.python.version=3.11
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.sources=app
             -Dsonar.tests=tests 
