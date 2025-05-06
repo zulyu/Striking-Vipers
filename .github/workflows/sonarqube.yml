@@ -37,8 +37,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          args: >
-            -Dsonar.projectKey=striking-vipers
+          scanner-version: "7.1.0.4889"
+          scanner-args: |
+            -Dsonar.projectKey=zulyu_Striking-Vipers
+            -Dsonar.organization=zuly
             -Dsonar.python.version=3.7
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.sources=app
