@@ -1,0 +1,8 @@
+game.Game.__init__
+false
+7ee75b50342ab077f544d2ba25bdc486
+game.init_db
+==
+set_caption
+set_mode
+setup_input_boxes

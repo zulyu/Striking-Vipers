@@ -1,0 +1,7 @@
+organization=zuly
+projectKey=zuly_strikingvipers3
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.63002
+dashboardUrl=https://sonarcloud.io/dashboard?id=zuly_strikingvipers3
+ceTaskId=AZakrpZO-15keZjtjKKI
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZakrpZO-15keZjtjKKI

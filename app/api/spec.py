@@ -15,6 +15,68 @@ api_spec = {
         }
     ],
     "paths": {
+        "/auth/login": {
+            "post": {
+                "summary": "User login",
+                "description": "Authenticate a user and return a token",
+                "requestBody": {
+                    "required": True,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/auth/signup": {
+            "post": {
+                "summary": "User signup",
+                "description": "Register a new user",
+                "requestBody": {
+                    "required": True,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignupRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
         "/teachers": {
             "get": {
                 "summary": "List all teachers",
@@ -539,6 +601,98 @@ api_spec = {
                     }
                 },
                 "required": ["name", "email", "grade", "class_id"]
+            },
+            "LoginRequest": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "User's email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User's password"
+                    }
+                },
+                "required": ["email", "password"]
+            },
+            "LoginResponse": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "description": "JWT token for authentication"
+                    },
+                    "user": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "description": "User ID"
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "User's name"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "User's email"
+                            },
+                            "role": {
+                                "type": "string",
+                                "description": "User's role (student/teacher)"
+                            }
+                        }
+                    }
+                }
+            },
+            "SignupRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "User's full name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "User's email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User's password"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "User's role (student/teacher)",
+                        "enum": ["student", "teacher"]
+                    },
+                    "class_code": {
+                        "type": "string",
+                        "description": "Class code (required for students)"
+                    }
+                },
+                "required": ["name", "email", "password", "role"]
+            },
+            "SignupResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "User ID"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "User's name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "User's email"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "User's role"
+                    }
+                }
             }
         }
     }

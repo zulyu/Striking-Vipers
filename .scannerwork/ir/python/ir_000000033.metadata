@@ -1,0 +1,12 @@
+game.init_db
+false
+ac91c4cfee7f391b1ec505d128f6e0f5
+builtins.print
+os.path.exists
+os.remove
+sqlite3.dbapi2.connect
+==
+close
+commit
+cursor
+execute

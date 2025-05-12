@@ -1,6 +1,6 @@
 import pytest
 from app import create_app, db
-from app.models import Student
+from app.models import Teacher, Class as ClassModel, Student
 
 @pytest.fixture
 def app():
@@ -22,12 +22,11 @@ def test_student_creation(app):
         db.session.add(student)
         db.session.commit()
 
-        # Test that the student was created correctly
-        saved_student = Student.query.filter_by(email='jsmith@example.com').first()
-        assert saved_student is not None
-        assert saved_student.name == 'Jane Smith'
-        assert saved_student.grade == '10'
-        assert saved_student.class_id == 'CS101'
+        assert student.id is not None
+        assert student.name == 'Jane Smith'
+        assert student.email == 'jsmith@example.com'
+        assert student.grade == '10'
+        assert student.class_id == 'CS101'
 
 def test_student_validation(app):
     with app.app_context():
@@ -41,12 +40,14 @@ def test_student_validation(app):
         db.session.add(student1)
         db.session.commit()
 
+        # Try to create another student with the same email
         student2 = Student(
-            name='John Smith',
-            email='jsmith@example.com',  # Same email
-            grade='10',
-            class_id='CS101'
+            name='John Doe',
+            email='jsmith@example.com',  # Same email as student1
+            grade='11',
+            class_id='CS102'
         )
         db.session.add(student2)
-        with pytest.raises(Exception):
+        
+        with pytest.raises(Exception):  # Should raise an integrity error
             db.session.commit() 

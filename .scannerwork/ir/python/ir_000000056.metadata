@@ -1,0 +1,5 @@
+app.api.routes.StudentResource.get
+false
+8ae451ea8a53b72e17bf552db0da6a93
+==
+get_or_404

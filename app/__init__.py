@@ -36,8 +36,12 @@ def create_app(config_name="development"):
     from app.api.routes import (
         TeacherList, TeacherResource,
         ClassList, ClassResource,
-        StudentList, StudentResource
+        StudentList, StudentResource,
+        auth_ns
     )
+
+    # Add auth namespace
+    api.add_namespace(auth_ns, path='/api/auth')
 
     # Add resources to API
     api.add_resource(TeacherList, '/teachers')
