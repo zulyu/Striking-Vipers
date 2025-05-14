@@ -524,16 +524,16 @@ async def main():
                 
             # Handle events based on current screen
             if game.current_screen == "login":
-                # Your existing login screen event handling
-                # ...
+                # Placeholder for login event handling
+                pass
                 
             elif game.current_screen == "level":
-                # Your existing level screen event handling
-                # ...
+                # Placeholder for level event handling
+                pass
                 
             elif game.current_screen == "matching":
-                # Your existing matching game event handling
-                # ...
+                # Placeholder for matching game event handling
+                pass
                 
         # This is critical for web deployment
         pygame.display.flip()
