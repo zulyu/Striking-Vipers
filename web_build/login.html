@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Striking Vipers - Login</title>
     <style>
         body {
@@ -105,21 +108,29 @@
     </div>
 
     <script>
-        document.getElementById('login-btn').addEventListener('click', function() {
-            const email = document.getElementById('email').value;
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const classcode = document.getElementById('classcode').value;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Clear any cached data from previous sessions
+            localStorage.clear();
+            sessionStorage.clear();
             
-            // Check if login matches test account
-            if (email === 'test@example.com' && username === 'testuser' && 
-                password === 'password123' && classcode === 'CS101') {
-                // Redirect to the game - using a new URL to avoid the redirect loop
-                window.location.href = 'game.html';
-            } else {
-                // Show error message
-                document.getElementById('error-message').style.display = 'block';
-            }
+            document.getElementById('login-btn').addEventListener('click', function() {
+                const email = document.getElementById('email').value;
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const classcode = document.getElementById('classcode').value;
+                
+                // Check if login matches test account
+                if (email === 'test@example.com' && username === 'testuser' && 
+                    password === 'password123' && classcode === 'CS101') {
+                    // Add a timestamp to prevent caching issues
+                    const timestamp = new Date().getTime();
+                    // Redirect to the game with cache busting parameter
+                    window.location.href = 'game.html?v=' + timestamp;
+                } else {
+                    // Show error message
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            });
         });
     </script>
 </body>

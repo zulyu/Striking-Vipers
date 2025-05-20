@@ -1,0 +1,7 @@
+app.api.routes.StudentResource.delete
+false
+05719ce2166a473b7dd84ce2336672f4
+==
+commit
+delete
+get_or_404

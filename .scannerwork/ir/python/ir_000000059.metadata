@@ -1,8 +1,5 @@
-app.api.create_app
+app.api.routes.ClassList.get
 false
-785ee2f22ac9b6c22e5b31f2a800bda9
-flask.app.Flask.__init__
+d84c310d97f82f4df12688250bba5f5c
 ==
-add_namespace
-from_object
-init_app
+all

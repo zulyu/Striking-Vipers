@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=typing_game.html?v=2">
+    <title>Loading Typing Game...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .loader {
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading Typing Game...</h1>
+    <div class="loader"></div>
+    <p>If you are not redirected automatically, <a href="typing_game.html?v=2">click here</a>.</p>
+    <script>
+        // Clear any cached JavaScript
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // Force cache reload with timestamp
+        window.location.replace("typing_game.html?v=" + new Date().getTime());
+    </script>
+</body>
+</html> 

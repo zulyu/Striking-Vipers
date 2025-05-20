@@ -1,8 +1,4 @@
-app.create_app
+app.models.Teacher.set_password
 false
-59f8fbea19eb71e022c05864dc2f94e0
-flask.app.Flask.__init__
-==
-add_resource
-from_object
-init_app
+a9a62a985c91afc5d58bbb16e7ef4a75
+werkzeug.security.generate_password_hash

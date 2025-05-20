@@ -1,7 +1,9 @@
-app.api.routes.TeacherResource.delete
+/Users/Zuly/Documents/GitHub/SOFTWARE-FINAL/se498-final/web_build/main.#__main__
 false
-3e283c42b73db0a72c1d51bf2beef0fc
+872ed63a396eac5210b4343179a1907b
+asyncio.runners.run
+main.init_game
+main.main
 ==
-commit
-delete
-get_or_404
+SysFont
+init

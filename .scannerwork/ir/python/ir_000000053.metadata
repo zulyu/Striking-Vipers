@@ -1,5 +1,5 @@
-app.api.routes.ClassResource.get
+app.api.routes.validate_teacher
 false
-efc6d218a2301da92a0150d1d1b0cf68
+2251992820a28f074761d9e5984be830
 ==
-get_or_404
+get

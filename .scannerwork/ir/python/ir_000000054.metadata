@@ -1,7 +1,5 @@
-app.api.routes.ClassResource.delete
+app.api.routes.validate_class
 false
-9cdccfbd94853a9cfc2b12269e457fa7
+0c34328ea7b5c6ef484421066e9e301b
 ==
-commit
-delete
-get_or_404
+get

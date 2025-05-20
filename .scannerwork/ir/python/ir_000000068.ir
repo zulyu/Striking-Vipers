@@ -1,0 +1,2765 @@
+
+[
+	#__main__N/Users/Zuly/Documents/GitHub/SOFTWARE-FINAL/se498-final/app/api/spec.#__main__%"/auth/login"str—"204"strÀ"path"str(™"Teacher deleted successfully"str"ö"/students/{student_id}"strÑ"Student email"strÌ"Student name"stró"email"str"²"/teachers/{teacher_id}"str˜"Class"str1"$ref"strÁ	"Student"str"µ"Get a specific teacher"str”"Student not found"str(¥"Teacher created successfully"str"paths"str"title"str%ˆ"Delete a specific teacher"strw"/teachers"strû"User's email"str Ù"Create a new student"strÚ"SignupResponse"strÌ"class_code"str,û""Returns a specific student by ID"str&"requestBody"strq"Invalid input"str!	"summary"str(Ï"#/components/schemas/Student"str½"teacher_id"str°"Link to this class"str‰"collection"str<"Login successful"strØ"/classes/{class_id}"strÄ"enum"strÿ"links"str:"200"str"post"str¦"role"strà	"schemas"str¼"name"str	"openapi"str»"Create a new class"str+	"content"strŸ"User's name"strÈ	"teacher"str#ı"Update a specific class"strë"Teacher ID"strÆ	"student"str×"Student grade"str)} "Returns a list of all teachers"strõ"LoginRequest"str%š"Update a specific student"str-A$"#/components/schemas/LoginResponse"str)©"User's role (student/teacher)"strğ"Teacher name"strü"Subject taught"stro"400"str!—"Creates a new teacher"str‡"array"str#§"Delete a specific class"str,ß""Updates a specific teacher by ID"str*© "Deletes a specific class by ID"strO"/auth/signup"stræ"properties"str †"Link to this teacher"strÔ"404"strG"401"str°"SignupRequest"str-[$"#/components/schemas/SignupRequest"str"3.0.0"str •"Create a new teacher"str¤"Class capacity"str(‘"JWT token for authentication"strÛ"put"str&±"#/components/schemas/Class"str¡
+"capacity"str†"delete"strŞ"components"strÇ"Student ID"str)§"Returns a list of all classes"str,œ""Updates a specific student by ID"str"ù"Get a specific student"strÔ"grade"str"info"str*İ "Returns a specific class by ID"str¹"parameters"str‰"items"str
+"Class ID"str Œ"Link to all teachers"str-"application/json"str ã"Link to this student"str{"List all teachers"str"token"str&—"Class updated successfully"strNoneNoneTypeÄ	"integer"str%Ä"Delete a specific student"str Û"Get a specific class"str¥"List all classes"stræ"string"str&·"Class deleted successfully"strá
+"class_id"str.Ï$"Class code (required for students)"strI"Invalid credentials"str"1.0"str(´"Student updated successfully"strÃ"List all students"str¿"in"str¶"User's full name"strš	"User ID"str"Striking Vipers API"str/"schema"strâ	"Teacher"strö"Teacher email"str
+	"version"strÖ"Teacher not found"strù	"subject"str%İ"Update a specific teacher"str8"responses"strş
+"password"str1$("Authenticate a user and return a token"str.i%"#/components/schemas/SignupResponse"str¢
+"/classes"str†"type"str"description"str&Ë"Class created successfully"str "Successful operation"str
+"Base URL"str*ÿ "Updates a specific class by ID"strÿ"student_id"str,Æ""Deletes a specific student by ID"strè"id"str"User's password"strR"User signup"strb"201"strµ"Link to all classes"strÀ"/students"str)trueboolT"Register a new user"str,Š""Deletes a specific teacher by ID"strì"User's role"str*Å "Returns a list of all students"strä"object"str½"Creates a new class"str"/"str(é"Student created successfully"str$d"User created successfully"str(÷"Teacher updated successfully"str,2#"#/components/schemas/LoginRequest"strcZ"API for managing teachers, classes, and students in the Striking Vipers educational game"str,·""Returns a specific teacher by ID"stry"get"str	"servers"str!Û"Creates a new student"str”"user"str(Ô"Student deleted successfully"str""User login"str(‹"#/components/schemas/Teacher"str(
+"required"str"url"strŠ"LoginResponse"str è"Link to all students"strƒ"self"str÷"Class not found"str"ÿ³@
+>
+	 »(api_spec"
+#new-object##new-object#"2dict.
+,
+ ("
+	#map-set#	#map-set#"*5
+3
+ 
+("
+#new-object##new-object#"2dict.
+,
+ (&	"
+	#map-set#	#map-set#"*.
+,
+ ("
+	#map-set#	#map-set#"*
+.
+,
+	 	(q"
+	#map-set#	#map-set#"*.
+,
+ 
+("
+	#map-set#	#map-set#"*5
+3
+ ("
+#new-object##new-object#"2list5
+3
+ (	"
+#new-object##new-object#"2dict.
+,
+ ("
+	#map-set#	#map-set#"*.
+,
+ (%"
+	#map-set#	#map-set#"*;
+9
+ ("'
+#array-add-last##array-add-last#"*.
+,
+ ("
+	#map-set#	#map-set#"*6
+4
+	 ñ("
+#new-object##new-object#"2dict5
+3
+ 0(	"
+#new-object##new-object#"2dict5
+3
+ /( "
+#new-object##new-object#"2dict.
+,
+ ('#"
+	#map-set#	#map-set#"* !".
+,
+ (G%"
+	#map-set#	#map-set#"* $5
+3
+ ('"
+#new-object##new-object#"2dict.
+,
+ ($*"
+	#map-set#	#map-set#"*'()5
+3
+ (,"
+#new-object##new-object#"2dict5
+3
+, (."
+#new-object##new-object#"2dict5
+3
+& (0"
+#new-object##new-object#"2dict.
+,
+  (K3"
+	#map-set#	#map-set#"*012.
+,
+ (4"
+	#map-set#	#map-set#"*./0.
+,
+ (5"
+	#map-set#	#map-set#"*,-..
+,
+ (6"
+	#map-set#	#map-set#"*'+,.
+,
+ (7"
+	#map-set#	#map-set#"* &'5
+3
+  .(9"
+#new-object##new-object#"2dict5
+3
+! *(;"
+#new-object##new-object#"2dict.
+,
+" "(9="
+	#map-set#	#map-set#"*;<5
+3
+## )(>"
+#new-object##new-object#"2dict5
+3
+$0 ((?"
+#new-object##new-object#"2dict5
+3
+%* '(!@"
+#new-object##new-object#"2dict.
+,
+&$ &(PB"
+	#map-set#	#map-set#"*@1A.
+,
+%  '(!C"
+	#map-set#	#map-set#"*?/@.
+,
+$ ((D"
+	#map-set#	#map-set#"*>-?.
+,
+# )(E"
+	#map-set#	#map-set#"*;+>.
+,
+! *(F"
+	#map-set#	#map-set#"*9:;5
+3
++ -(H"
+#new-object##new-object#"2dict.
+,
+, ,(<J"
+	#map-set#	#map-set#"*HI.
+,
++ -(K"
+	#map-set#	#map-set#"*9GH.
+,
+  .(L"
+	#map-set#	#map-set#"* 89.
+,
+ /(M"
+	#map-set#	#map-set#"* .
+,
+ 0(	N"
+	#map-set#	#map-set#"*5
+3
+1 O(	P"
+#new-object##new-object#"2dict5
+3
+2 N(Q"
+#new-object##new-object#"2dict.
+,
+3 3((S"
+	#map-set#	#map-set#"*Q!R.
+,
+4 4(4U"
+	#map-set#	#map-set#"*QT5
+3
+5 >(V"
+#new-object##new-object#"2dict.
+,
+6 6($W"
+	#map-set#	#map-set#"*V()5
+3
+7 =(X"
+#new-object##new-object#"2dict5
+3
+8, <(Y"
+#new-object##new-object#"2dict5
+3
+9& ;(Z"
+#new-object##new-object#"2dict.
+,
+:  :(L\"
+	#map-set#	#map-set#"*Z1[.
+,
+9 ;(]"
+	#map-set#	#map-set#"*Y/Z.
+,
+8 <(^"
+	#map-set#	#map-set#"*X-Y.
+,
+7 =(_"
+	#map-set#	#map-set#"*V+X.
+,
+5 >(`"
+	#map-set#	#map-set#"*Q&V5
+3
+? M(a"
+#new-object##new-object#"2dict5
+3
+@ I(c"
+#new-object##new-object#"2dict.
+,
+A A(Be"
+	#map-set#	#map-set#"*cd5
+3
+B# H(f"
+#new-object##new-object#"2dict5
+3
+C0 G(g"
+#new-object##new-object#"2dict5
+3
+D* F(!h"
+#new-object##new-object#"2dict.
+,
+E$ E(Qj"
+	#map-set#	#map-set#"*h1i.
+,
+D  F(!k"
+	#map-set#	#map-set#"*g/h.
+,
+C G(l"
+	#map-set#	#map-set#"*f-g.
+,
+B H(m"
+	#map-set#	#map-set#"*c+f.
+,
+@ I(n"
+	#map-set#	#map-set#"*abc5
+3
+J L(p"
+#new-object##new-object#"2dict.
+,
+K K(6r"
+	#map-set#	#map-set#"*pq.
+,
+J L(s"
+	#map-set#	#map-set#"*aop.
+,
+? M(t"
+	#map-set#	#map-set#"*Q8a.
+,
+2 N(u"
+	#map-set#	#map-set#"*PQ.
+,
+1 O(	v"
+	#map-set#	#map-set#"*OP5
+3
+P ~(	x"
+#new-object##new-object#"2dict5
+3
+Q c(z"
+#new-object##new-object#"2dict.
+,
+R R(.|"
+	#map-set#	#map-set#"*z!{.
+,
+S S(?~"
+	#map-set#	#map-set#"*z}5
+3
+T b("
+#new-object##new-object#"2dict6
+4
+U a(€"
+#new-object##new-object#"2dict1
+/
+V V(=‚"
+	#map-set#	#map-set#"*€6
+4
+W# `(ƒ"
+#new-object##new-object#"2dict6
+4
+X0 _(„"
+#new-object##new-object#"2dict6
+4
+Y* ^(!…"
+#new-object##new-object#"2dict2
+0
+Z$ Z(3ˆ"
+	#map-set#	#map-set#"*…†‡6
+4
+[- ](%Š"
+#new-object##new-object#"2dict1
+/
+\( \(NŒ"
+	#map-set#	#map-set#"*Š1‹2
+0
+[$ ](%"
+	#map-set#	#map-set#"*…‰Š1
+/
+Y  ^(!"
+	#map-set#	#map-set#"*„/…1
+/
+X _("
+	#map-set#	#map-set#"*ƒ-„1
+/
+W `("
+	#map-set#	#map-set#"*€+ƒ0
+.
+U a(‘"
+	#map-set#	#map-set#"*:€/
+-
+T b(’"
+	#map-set#	#map-set#"*z8/
+-
+Q c(“"
+	#map-set#	#map-set#"*xyz6
+4
+d }(”"
+#new-object##new-object#"2dict1
+/
+e e(1–"
+	#map-set#	#map-set#"*”!•1
+/
+f f(6˜"
+	#map-set#	#map-set#"*”—6
+4
+g p(™"
+#new-object##new-object#"2dict0
+.
+h h($š"
+	#map-set#	#map-set#"*™()6
+4
+i o(›"
+#new-object##new-object#"2dict6
+4
+j, n(œ"
+#new-object##new-object#"2dict6
+4
+k& m("
+#new-object##new-object#"2dict1
+/
+l  l(F"
+	#map-set#	#map-set#"*1‹1
+/
+k m(Ÿ"
+	#map-set#	#map-set#"*œ/1
+/
+j n( "
+	#map-set#	#map-set#"*›-œ1
+/
+i o(¡"
+	#map-set#	#map-set#"*™+›1
+/
+g p(¢"
+	#map-set#	#map-set#"*”&™6
+4
+q |(£"
+#new-object##new-object#"2dict6
+4
+r {(¤"
+#new-object##new-object#"2dict1
+/
+s s(E¦"
+	#map-set#	#map-set#"*¤¥6
+4
+t# z(§"
+#new-object##new-object#"2dict6
+4
+u0 y(¨"
+#new-object##new-object#"2dict6
+4
+v* x(!©"
+#new-object##new-object#"2dict1
+/
+w$ w(Jª"
+	#map-set#	#map-set#"*©1‹1
+/
+v  x(!«"
+	#map-set#	#map-set#"*¨/©1
+/
+u y(¬"
+	#map-set#	#map-set#"*§-¨1
+/
+t z(­"
+	#map-set#	#map-set#"*¤+§1
+/
+r {(®"
+	#map-set#	#map-set#"*£b¤1
+/
+q |(¯"
+	#map-set#	#map-set#"*”8£0
+.
+d }(°"
+	#map-set#	#map-set#"*x”/
+-
+P ~(	±"
+	#map-set#	#map-set#"*wx7
+5
+	" Ú(	³"
+#new-object##new-object#"2dict8
+6
+
+€ œ(´"
+#new-object##new-object#"2dict3
+1
+
+ (3¶"
+	#map-set#	#map-set#"*´!µ3
+1
+
+‚ ‚(A¸"
+	#map-set#	#map-set#"*´·8
+6
+
+ƒ Œ(º"
+#new-object##new-object#"2list8
+6
+
+„ ‹(»"
+#new-object##new-object#"2dict4
+2
+
+… …(,¾"
+	#map-set#	#map-set#"*»¼½4
+2
+
+† †($Á"
+	#map-set#	#map-set#"*»¿À2
+0
+
+‡ ‡((Â"
+	#map-set#	#map-set#"*»()8
+6
+
+ˆ" Š(Ã"
+#new-object##new-object#"2dict4
+2
+
+‰ ‰(-Å"
+	#map-set#	#map-set#"*Ã†Ä3
+1
+
+ˆ Š(Æ"
+	#map-set#	#map-set#"*»/Ã@
+>
+
+ƒ Œ(Ç"'
+#array-add-last##array-add-last#"*º»4
+2
+
+ƒ Œ(È"
+	#map-set#	#map-set#"*´¹º8
+6
+
+ ›(É"
+#new-object##new-object#"2dict8
+6
+
+ —(Ê"
+#new-object##new-object#"2dict3
+1
+
+ (=Ë"
+	#map-set#	#map-set#"*Ê8
+6
+
+# –(Ì"
+#new-object##new-object#"2dict8
+6
+
+‘0 •(Í"
+#new-object##new-object#"2dict8
+6
+
+’* ”(!Î"
+#new-object##new-object#"2dict3
+1
+
+“$ “(JÏ"
+	#map-set#	#map-set#"*Î1‹3
+1
+
+’  ”(!Ğ"
+	#map-set#	#map-set#"*Í/Î3
+1
+
+‘ •(Ñ"
+	#map-set#	#map-set#"*Ì-Í3
+1
+
+ –(Ò"
+	#map-set#	#map-set#"*Ê+Ì3
+1
+
+ —(Ó"
+	#map-set#	#map-set#"*É:Ê8
+6
+
+˜ š(Õ"
+#new-object##new-object#"2dict3
+1
+
+™ ™(:×"
+	#map-set#	#map-set#"*ÕÖ4
+2
+
+˜ š(Ø"
+	#map-set#	#map-set#"*ÉÔÕ3
+1
+
+ ›(Ù"
+	#map-set#	#map-set#"*´8É3
+1
+
+€ œ(Ú"
+	#map-set#	#map-set#"*³y´8
+6
+
+ Ã(Ü"
+#new-object##new-object#"2dict3
+1
+
+ (6Ş"
+	#map-set#	#map-set#"*Ü!İ3
+1
+
+Ÿ Ÿ(Aà"
+	#map-set#	#map-set#"*Üß8
+6
+
+  ©(á"
+#new-object##new-object#"2list8
+6
+
+¡ ¨(â"
+#new-object##new-object#"2dict4
+2
+
+¢ ¢(,ã"
+	#map-set#	#map-set#"*â¼½4
+2
+
+£ £($ä"
+	#map-set#	#map-set#"*â¿À2
+0
+
+¤ ¤((å"
+	#map-set#	#map-set#"*â()8
+6
+
+¥" §(æ"
+#new-object##new-object#"2dict4
+2
+
+¦ ¦(-ç"
+	#map-set#	#map-set#"*æ†Ä3
+1
+
+¥ §(è"
+	#map-set#	#map-set#"*â/æ@
+>
+
+  ©(é"'
+#array-add-last##array-add-last#"*áâ4
+2
+
+  ©(ê"
+	#map-set#	#map-set#"*Ü¹á8
+6
+
+ª ³(ë"
+#new-object##new-object#"2dict2
+0
+
+« «($ì"
+	#map-set#	#map-set#"*ë()8
+6
+
+¬ ²(í"
+#new-object##new-object#"2dict8
+6
+
+­, ±(î"
+#new-object##new-object#"2dict8
+6
+
+®& °(ï"
+#new-object##new-object#"2dict3
+1
+
+¯  ¯(Fğ"
+	#map-set#	#map-set#"*ï1‹3
+1
+
+® °(ñ"
+	#map-set#	#map-set#"*î/ï3
+1
+
+­ ±(ò"
+	#map-set#	#map-set#"*í-î3
+1
+
+¬ ²(ó"
+	#map-set#	#map-set#"*ë+í3
+1
+
+ª ³(ô"
+	#map-set#	#map-set#"*Ü&ë8
+6
+
+´ Â(õ"
+#new-object##new-object#"2dict8
+6
+
+µ ¾(ö"
+#new-object##new-object#"2dict3
+1
+
+¶ ¶(Eø"
+	#map-set#	#map-set#"*ö÷8
+6
+
+·# ½(ù"
+#new-object##new-object#"2dict8
+6
+
+¸0 ¼(ú"
+#new-object##new-object#"2dict8
+6
+
+¹* »(!û"
+#new-object##new-object#"2dict3
+1
+
+º$ º(Jü"
+	#map-set#	#map-set#"*û1‹3
+1
+
+¹  »(!ı"
+	#map-set#	#map-set#"*ú/û3
+1
+
+¸ ¼(ş"
+	#map-set#	#map-set#"*ù-ú3
+1
+
+· ½(ÿ"
+	#map-set#	#map-set#"*ö+ù3
+1
+
+µ ¾(€"
+	#map-set#	#map-set#"*õ:ö8
+6
+
+¿ Á("
+#new-object##new-object#"2dict3
+1
+
+À À(:‚"
+	#map-set#	#map-set#"*Ö4
+2
+
+¿ Á(ƒ"
+	#map-set#	#map-set#"*õÔ3
+1
+
+´ Â(„"
+	#map-set#	#map-set#"*Ü8õ4
+2
+
+ Ã(…"
+	#map-set#	#map-set#"*³ÛÜ8
+6
+
+Ä Ù(‡"
+#new-object##new-object#"2dict3
+1
+
+Å Å(6‰"
+	#map-set#	#map-set#"*‡!ˆ3
+1
+
+Æ Æ(A‹"
+	#map-set#	#map-set#"*‡Š8
+6
+
+Ç Ğ(Œ"
+#new-object##new-object#"2list8
+6
+
+È Ï("
+#new-object##new-object#"2dict4
+2
+
+É É(,"
+	#map-set#	#map-set#"*¼½4
+2
+
+Ê Ê($"
+	#map-set#	#map-set#"*¿À2
+0
+
+Ë Ë(("
+	#map-set#	#map-set#"*()8
+6
+
+Ì" Î(‘"
+#new-object##new-object#"2dict4
+2
+
+Í Í(-’"
+	#map-set#	#map-set#"*‘†Ä3
+1
+
+Ì Î(“"
+	#map-set#	#map-set#"*/‘@
+>
+
+Ç Ğ(”"'
+#array-add-last##array-add-last#"*Œ4
+2
+
+Ç Ğ(•"
+	#map-set#	#map-set#"*‡¹Œ8
+6
+
+Ñ Ø(–"
+#new-object##new-object#"2dict8
+6
+
+Ò Ô(˜"
+#new-object##new-object#"2dict3
+1
+
+Ó Ó(Eš"
+	#map-set#	#map-set#"*˜™4
+2
+
+Ò Ô(›"
+	#map-set#	#map-set#"*–—˜8
+6
+
+Õ ×(œ"
+#new-object##new-object#"2dict3
+1
+
+Ö Ö(:"
+	#map-set#	#map-set#"*œÖ4
+2
+
+Õ ×("
+	#map-set#	#map-set#"*–Ôœ3
+1
+
+Ñ Ø(Ÿ"
+	#map-set#	#map-set#"*‡8–4
+2
+
+Ä Ù( "
+	#map-set#	#map-set#"*³†‡2
+0
+	 Ú(	¡"
+	#map-set#	#map-set#"*²³8
+6
+
+Û ‰(	£"
+#new-object##new-object#"2dict8
+6
+
+Ü î(¤"
+#new-object##new-object#"2dict3
+1
+
+İ İ(-¦"
+	#map-set#	#map-set#"*¤!¥3
+1
+
+Ş Ş(>¨"
+	#map-set#	#map-set#"*¤§8
+6
+
+ß í(©"
+#new-object##new-object#"2dict8
+6
+
+à ì(ª"
+#new-object##new-object#"2dict3
+1
+
+á á(=«"
+	#map-set#	#map-set#"*ª8
+6
+
+â# ë(¬"
+#new-object##new-object#"2dict8
+6
+
+ã0 ê(­"
+#new-object##new-object#"2dict8
+6
+
+ä* é(!®"
+#new-object##new-object#"2dict4
+2
+
+å$ å(3¯"
+	#map-set#	#map-set#"*®†‡8
+6
+
+æ- è(%°"
+#new-object##new-object#"2dict3
+1
+
+ç( ç(L²"
+	#map-set#	#map-set#"*°1±4
+2
+
+æ$ è(%³"
+	#map-set#	#map-set#"*®‰°3
+1
+
+ä  é(!´"
+	#map-set#	#map-set#"*­/®3
+1
+
+ã ê(µ"
+	#map-set#	#map-set#"*¬-­3
+1
+
+â ë(¶"
+	#map-set#	#map-set#"*ª+¬3
+1
+
+à ì(·"
+	#map-set#	#map-set#"*©:ª3
+1
+
+ß í(¸"
+	#map-set#	#map-set#"*¤8©3
+1
+
+Ü î(¹"
+	#map-set#	#map-set#"*£y¤8
+6
+
+ï ˆ(º"
+#new-object##new-object#"2dict3
+1
+
+ğ ğ(/¼"
+	#map-set#	#map-set#"*º!»3
+1
+
+ñ ñ(4¾"
+	#map-set#	#map-set#"*º½8
+6
+
+ò û(¿"
+#new-object##new-object#"2dict2
+0
+
+ó ó($À"
+	#map-set#	#map-set#"*¿()8
+6
+
+ô ú(Á"
+#new-object##new-object#"2dict8
+6
+
+õ, ù(Â"
+#new-object##new-object#"2dict8
+6
+
+ö& ø(Ã"
+#new-object##new-object#"2dict3
+1
+
+÷  ÷(DÄ"
+	#map-set#	#map-set#"*Ã1±3
+1
+
+ö ø(Å"
+	#map-set#	#map-set#"*Â/Ã3
+1
+
+õ ù(Æ"
+	#map-set#	#map-set#"*Á-Â3
+1
+
+ô ú(Ç"
+	#map-set#	#map-set#"*¿+Á3
+1
+
+ò û(È"
+	#map-set#	#map-set#"*º&¿8
+6
+
+ü ‡(É"
+#new-object##new-object#"2dict8
+6
+
+ı †(Ê"
+#new-object##new-object#"2dict3
+1
+
+ş ş(CÌ"
+	#map-set#	#map-set#"*ÊË8
+6
+
+ÿ# …(Í"
+#new-object##new-object#"2dict8
+6
+
+€0 „(Î"
+#new-object##new-object#"2dict8
+6
+
+* ƒ(!Ï"
+#new-object##new-object#"2dict3
+1
+
+‚$ ‚(HĞ"
+	#map-set#	#map-set#"*Ï1±3
+1
+
+  ƒ(!Ñ"
+	#map-set#	#map-set#"*Î/Ï3
+1
+
+€ „(Ò"
+	#map-set#	#map-set#"*Í-Î3
+1
+
+ÿ …(Ó"
+	#map-set#	#map-set#"*Ê+Í3
+1
+
+ı †(Ô"
+	#map-set#	#map-set#"*ÉbÊ3
+1
+
+ü ‡(Õ"
+	#map-set#	#map-set#"*º8É3
+1
+
+ï ˆ(Ö"
+	#map-set#	#map-set#"*£º3
+1
+
+Û ‰(	×"
+	#map-set#	#map-set#"*¢£8
+6
+
+Š å(	Ù"
+#new-object##new-object#"2dict8
+6
+
+‹ §(Ú"
+#new-object##new-object#"2dict3
+1
+
+Œ Œ(1Ü"
+	#map-set#	#map-set#"*Ú!Û3
+1
+
+ (?Ş"
+	#map-set#	#map-set#"*Úİ8
+6
+
+ —(ß"
+#new-object##new-object#"2list8
+6
+
+ –(à"
+#new-object##new-object#"2dict4
+2
+
+ (*â"
+	#map-set#	#map-set#"*à¼á4
+2
+
+‘ ‘($ã"
+	#map-set#	#map-set#"*à¿À2
+0
+
+’ ’((ä"
+	#map-set#	#map-set#"*à()8
+6
+
+“" •(å"
+#new-object##new-object#"2dict4
+2
+
+” ”(,ç"
+	#map-set#	#map-set#"*å†æ3
+1
+
+“ •(è"
+	#map-set#	#map-set#"*à/å@
+>
+
+ —(é"'
+#array-add-last##array-add-last#"*ßà4
+2
+
+ —(ê"
+	#map-set#	#map-set#"*Ú¹ß8
+6
+
+˜ ¦(ë"
+#new-object##new-object#"2dict8
+6
+
+™ ¢(ì"
+#new-object##new-object#"2dict3
+1
+
+š š(=í"
+	#map-set#	#map-set#"*ì8
+6
+
+›# ¡(î"
+#new-object##new-object#"2dict8
+6
+
+œ0  (ï"
+#new-object##new-object#"2dict8
+6
+
+* Ÿ(!ğ"
+#new-object##new-object#"2dict3
+1
+
+$ (Hñ"
+	#map-set#	#map-set#"*ğ1±3
+1
+
+  Ÿ(!ò"
+	#map-set#	#map-set#"*ï/ğ3
+1
+
+œ  (ó"
+	#map-set#	#map-set#"*î-ï3
+1
+
+› ¡(ô"
+	#map-set#	#map-set#"*ì+î3
+1
+
+™ ¢(õ"
+	#map-set#	#map-set#"*ë:ì8
+6
+
+£ ¥(ö"
+#new-object##new-object#"2dict3
+1
+
+¤ ¤(8ø"
+	#map-set#	#map-set#"*ö÷4
+2
+
+£ ¥(ù"
+	#map-set#	#map-set#"*ëÔö3
+1
+
+˜ ¦(ú"
+	#map-set#	#map-set#"*Ú8ë3
+1
+
+‹ §(û"
+	#map-set#	#map-set#"*ÙyÚ8
+6
+
+¨ Î(ü"
+#new-object##new-object#"2dict3
+1
+
+© ©(4ş"
+	#map-set#	#map-set#"*ü!ı3
+1
+
+ª ª(?€"
+	#map-set#	#map-set#"*üÿ8
+6
+
+« ´("
+#new-object##new-object#"2list8
+6
+
+¬ ³(‚"
+#new-object##new-object#"2dict4
+2
+
+­ ­(*ƒ"
+	#map-set#	#map-set#"*‚¼á4
+2
+
+® ®($„"
+	#map-set#	#map-set#"*‚¿À2
+0
+
+¯ ¯((…"
+	#map-set#	#map-set#"*‚()8
+6
+
+°" ²(†"
+#new-object##new-object#"2dict4
+2
+
+± ±(,‡"
+	#map-set#	#map-set#"*††æ3
+1
+
+° ²(ˆ"
+	#map-set#	#map-set#"*‚/†@
+>
+
+« ´(‰"'
+#array-add-last##array-add-last#"*‚4
+2
+
+« ´(Š"
+	#map-set#	#map-set#"*ü¹8
+6
+
+µ ¾(‹"
+#new-object##new-object#"2dict2
+0
+
+¶ ¶($Œ"
+	#map-set#	#map-set#"*‹()8
+6
+
+· ½("
+#new-object##new-object#"2dict8
+6
+
+¸, ¼("
+#new-object##new-object#"2dict8
+6
+
+¹& »("
+#new-object##new-object#"2dict3
+1
+
+º  º(D"
+	#map-set#	#map-set#"*1±3
+1
+
+¹ »(‘"
+	#map-set#	#map-set#"*/3
+1
+
+¸ ¼(’"
+	#map-set#	#map-set#"*-3
+1
+
+· ½(“"
+	#map-set#	#map-set#"*‹+3
+1
+
+µ ¾(”"
+	#map-set#	#map-set#"*ü&‹8
+6
+
+¿ Í(•"
+#new-object##new-object#"2dict8
+6
+
+À É(–"
+#new-object##new-object#"2dict3
+1
+
+Á Á(C˜"
+	#map-set#	#map-set#"*–—8
+6
+
+Â# È(™"
+#new-object##new-object#"2dict8
+6
+
+Ã0 Ç(š"
+#new-object##new-object#"2dict8
+6
+
+Ä* Æ(!›"
+#new-object##new-object#"2dict3
+1
+
+Å$ Å(Hœ"
+	#map-set#	#map-set#"*›1±3
+1
+
+Ä  Æ(!"
+	#map-set#	#map-set#"*š/›3
+1
+
+Ã Ç("
+	#map-set#	#map-set#"*™-š3
+1
+
+Â È(Ÿ"
+	#map-set#	#map-set#"*–+™3
+1
+
+À É( "
+	#map-set#	#map-set#"*•:–8
+6
+
+Ê Ì(¡"
+#new-object##new-object#"2dict3
+1
+
+Ë Ë(8¢"
+	#map-set#	#map-set#"*¡÷4
+2
+
+Ê Ì(£"
+	#map-set#	#map-set#"*•Ô¡3
+1
+
+¿ Í(¤"
+	#map-set#	#map-set#"*ü8•4
+2
+
+¨ Î(¥"
+	#map-set#	#map-set#"*ÙÛü8
+6
+
+Ï ä(¦"
+#new-object##new-object#"2dict3
+1
+
+Ğ Ğ(4¨"
+	#map-set#	#map-set#"*¦!§3
+1
+
+Ñ Ñ(?ª"
+	#map-set#	#map-set#"*¦©8
+6
+
+Ò Û(«"
+#new-object##new-object#"2list8
+6
+
+Ó Ú(¬"
+#new-object##new-object#"2dict4
+2
+
+Ô Ô(*­"
+	#map-set#	#map-set#"*¬¼á4
+2
+
+Õ Õ($®"
+	#map-set#	#map-set#"*¬¿À2
+0
+
+Ö Ö((¯"
+	#map-set#	#map-set#"*¬()8
+6
+
+×" Ù(°"
+#new-object##new-object#"2dict4
+2
+
+Ø Ø(,±"
+	#map-set#	#map-set#"*°†æ3
+1
+
+× Ù(²"
+	#map-set#	#map-set#"*¬/°@
+>
+
+Ò Û(³"'
+#array-add-last##array-add-last#"*«¬4
+2
+
+Ò Û(´"
+	#map-set#	#map-set#"*¦¹«8
+6
+
+Ü ã(µ"
+#new-object##new-object#"2dict8
+6
+
+İ ß(¶"
+#new-object##new-object#"2dict3
+1
+
+Ş Ş(C¸"
+	#map-set#	#map-set#"*¶·4
+2
+
+İ ß(¹"
+	#map-set#	#map-set#"*µ—¶8
+6
+
+à â(º"
+#new-object##new-object#"2dict3
+1
+
+á á(8»"
+	#map-set#	#map-set#"*º÷4
+2
+
+à â(¼"
+	#map-set#	#map-set#"*µÔº3
+1
+
+Ü ã(½"
+	#map-set#	#map-set#"*¦8µ4
+2
+
+Ï ä(¾"
+	#map-set#	#map-set#"*Ù†¦3
+1
+
+Š å(	¿"
+	#map-set#	#map-set#"*ØÙ8
+6
+
+æ ”(	Á"
+#new-object##new-object#"2dict8
+6
+
+ç ù(Â"
+#new-object##new-object#"2dict3
+1
+
+è è(.Ä"
+	#map-set#	#map-set#"*Â!Ã3
+1
+
+é é(?Æ"
+	#map-set#	#map-set#"*ÂÅ8
+6
+
+ê ø(Ç"
+#new-object##new-object#"2dict8
+6
+
+ë ÷(È"
+#new-object##new-object#"2dict3
+1
+
+ì ì(=É"
+	#map-set#	#map-set#"*È8
+6
+
+í# ö(Ê"
+#new-object##new-object#"2dict8
+6
+
+î0 õ(Ë"
+#new-object##new-object#"2dict8
+6
+
+ï* ô(!Ì"
+#new-object##new-object#"2dict4
+2
+
+ğ$ ğ(3Í"
+	#map-set#	#map-set#"*Ì†‡8
+6
+
+ñ- ó(%Î"
+#new-object##new-object#"2dict3
+1
+
+ò( ò(NĞ"
+	#map-set#	#map-set#"*Î1Ï4
+2
+
+ñ$ ó(%Ñ"
+	#map-set#	#map-set#"*Ì‰Î3
+1
+
+ï  ô(!Ò"
+	#map-set#	#map-set#"*Ë/Ì3
+1
+
+î õ(Ó"
+	#map-set#	#map-set#"*Ê-Ë3
+1
+
+í ö(Ô"
+	#map-set#	#map-set#"*È+Ê3
+1
+
+ë ÷(Õ"
+	#map-set#	#map-set#"*Ç:È3
+1
+
+ê ø(Ö"
+	#map-set#	#map-set#"*Â8Ç3
+1
+
+ç ù(×"
+	#map-set#	#map-set#"*ÁyÂ8
+6
+
+ú “(Ø"
+#new-object##new-object#"2dict3
+1
+
+û û(1Ú"
+	#map-set#	#map-set#"*Ø!Ù3
+1
+
+ü ü(6Ü"
+	#map-set#	#map-set#"*ØÛ8
+6
+
+ı †(İ"
+#new-object##new-object#"2dict2
+0
+
+ş ş($Ş"
+	#map-set#	#map-set#"*İ()8
+6
+
+ÿ …(ß"
+#new-object##new-object#"2dict8
+6
+
+€, „(à"
+#new-object##new-object#"2dict8
+6
+
+& ƒ(á"
+#new-object##new-object#"2dict3
+1
+
+‚  ‚(Fâ"
+	#map-set#	#map-set#"*á1Ï3
+1
+
+ ƒ(ã"
+	#map-set#	#map-set#"*à/á3
+1
+
+€ „(ä"
+	#map-set#	#map-set#"*ß-à3
+1
+
+ÿ …(å"
+	#map-set#	#map-set#"*İ+ß3
+1
+
+ı †(æ"
+	#map-set#	#map-set#"*Ø&İ8
+6
+
+‡ ’(ç"
+#new-object##new-object#"2dict8
+6
+
+ˆ ‘(è"
+#new-object##new-object#"2dict3
+1
+
+‰ ‰(Eê"
+	#map-set#	#map-set#"*èé8
+6
+
+Š# (ë"
+#new-object##new-object#"2dict8
+6
+
+‹0 (ì"
+#new-object##new-object#"2dict8
+6
+
+Œ* (!í"
+#new-object##new-object#"2dict3
+1
+
+$ (Jî"
+	#map-set#	#map-set#"*í1Ï3
+1
+
+Œ  (!ï"
+	#map-set#	#map-set#"*ì/í3
+1
+
+‹ (ğ"
+	#map-set#	#map-set#"*ë-ì3
+1
+
+Š (ñ"
+	#map-set#	#map-set#"*è+ë3
+1
+
+ˆ ‘(ò"
+	#map-set#	#map-set#"*çbè3
+1
+
+‡ ’(ó"
+	#map-set#	#map-set#"*Ø8ç3
+1
+
+ú “(ô"
+	#map-set#	#map-set#"*ÁØ3
+1
+
+æ ”(	õ"
+	#map-set#	#map-set#"*ÀÁ8
+6
+
+•" ğ(	÷"
+#new-object##new-object#"2dict8
+6
+
+– ²(ø"
+#new-object##new-object#"2dict3
+1
+
+— —(3ú"
+	#map-set#	#map-set#"*ø!ù3
+1
+
+˜ ˜(Aü"
+	#map-set#	#map-set#"*øû8
+6
+
+™ ¢(ı"
+#new-object##new-object#"2list8
+6
+
+š ¡(ş"
+#new-object##new-object#"2dict4
+2
+
+› ›(,€"
+	#map-set#	#map-set#"*ş¼ÿ4
+2
+
+œ œ($"
+	#map-set#	#map-set#"*ş¿À2
+0
+
+ ((‚"
+	#map-set#	#map-set#"*ş()8
+6
+
+"  (ƒ"
+#new-object##new-object#"2dict4
+2
+
+Ÿ Ÿ(-„"
+	#map-set#	#map-set#"*ƒ†Ä3
+1
+
+  (…"
+	#map-set#	#map-set#"*ş/ƒ@
+>
+
+™ ¢(†"'
+#array-add-last##array-add-last#"*ış4
+2
+
+™ ¢(‡"
+	#map-set#	#map-set#"*ø¹ı8
+6
+
+£ ±(ˆ"
+#new-object##new-object#"2dict8
+6
+
+¤ ­(‰"
+#new-object##new-object#"2dict3
+1
+
+¥ ¥(=Š"
+	#map-set#	#map-set#"*‰8
+6
+
+¦# ¬(‹"
+#new-object##new-object#"2dict8
+6
+
+§0 «(Œ"
+#new-object##new-object#"2dict8
+6
+
+¨* ª(!"
+#new-object##new-object#"2dict3
+1
+
+©$ ©(J"
+	#map-set#	#map-set#"*1Ï3
+1
+
+¨  ª(!"
+	#map-set#	#map-set#"*Œ/3
+1
+
+§ «("
+	#map-set#	#map-set#"*‹-Œ3
+1
+
+¦ ¬(‘"
+	#map-set#	#map-set#"*‰+‹3
+1
+
+¤ ­(’"
+	#map-set#	#map-set#"*ˆ:‰8
+6
+
+® °(“"
+#new-object##new-object#"2dict3
+1
+
+¯ ¯(:•"
+	#map-set#	#map-set#"*“”4
+2
+
+® °(–"
+	#map-set#	#map-set#"*ˆÔ“3
+1
+
+£ ±(—"
+	#map-set#	#map-set#"*ø8ˆ3
+1
+
+– ²(˜"
+	#map-set#	#map-set#"*÷yø8
+6
+
+³ Ù(™"
+#new-object##new-object#"2dict3
+1
+
+´ ´(6›"
+	#map-set#	#map-set#"*™!š3
+1
+
+µ µ(A"
+	#map-set#	#map-set#"*™œ8
+6
+
+¶ ¿("
+#new-object##new-object#"2list8
+6
+
+· ¾(Ÿ"
+#new-object##new-object#"2dict4
+2
+
+¸ ¸(, "
+	#map-set#	#map-set#"*Ÿ¼ÿ4
+2
+
+¹ ¹($¡"
+	#map-set#	#map-set#"*Ÿ¿À2
+0
+
+º º((¢"
+	#map-set#	#map-set#"*Ÿ()8
+6
+
+»" ½(£"
+#new-object##new-object#"2dict4
+2
+
+¼ ¼(-¤"
+	#map-set#	#map-set#"*£†Ä3
+1
+
+» ½(¥"
+	#map-set#	#map-set#"*Ÿ/£@
+>
+
+¶ ¿(¦"'
+#array-add-last##array-add-last#"*Ÿ4
+2
+
+¶ ¿(§"
+	#map-set#	#map-set#"*™¹8
+6
+
+À É(¨"
+#new-object##new-object#"2dict2
+0
+
+Á Á($©"
+	#map-set#	#map-set#"*¨()8
+6
+
+Â È(ª"
+#new-object##new-object#"2dict8
+6
+
+Ã, Ç(«"
+#new-object##new-object#"2dict8
+6
+
+Ä& Æ(¬"
+#new-object##new-object#"2dict3
+1
+
+Å  Å(F­"
+	#map-set#	#map-set#"*¬1Ï3
+1
+
+Ä Æ(®"
+	#map-set#	#map-set#"*«/¬3
+1
+
+Ã Ç(¯"
+	#map-set#	#map-set#"*ª-«3
+1
+
+Â È(°"
+	#map-set#	#map-set#"*¨+ª3
+1
+
+À É(±"
+	#map-set#	#map-set#"*™&¨8
+6
+
+Ê Ø(²"
+#new-object##new-object#"2dict8
+6
+
+Ë Ô(³"
+#new-object##new-object#"2dict3
+1
+
+Ì Ì(Eµ"
+	#map-set#	#map-set#"*³´8
+6
+
+Í# Ó(¶"
+#new-object##new-object#"2dict8
+6
+
+Î0 Ò(·"
+#new-object##new-object#"2dict8
+6
+
+Ï* Ñ(!¸"
+#new-object##new-object#"2dict3
+1
+
+Ğ$ Ğ(J¹"
+	#map-set#	#map-set#"*¸1Ï3
+1
+
+Ï  Ñ(!º"
+	#map-set#	#map-set#"*·/¸3
+1
+
+Î Ò(»"
+	#map-set#	#map-set#"*¶-·3
+1
+
+Í Ó(¼"
+	#map-set#	#map-set#"*³+¶3
+1
+
+Ë Ô(½"
+	#map-set#	#map-set#"*²:³8
+6
+
+Õ ×(¾"
+#new-object##new-object#"2dict3
+1
+
+Ö Ö(:¿"
+	#map-set#	#map-set#"*¾”4
+2
+
+Õ ×(À"
+	#map-set#	#map-set#"*²Ô¾3
+1
+
+Ê Ø(Á"
+	#map-set#	#map-set#"*™8²4
+2
+
+³ Ù(Â"
+	#map-set#	#map-set#"*÷Û™8
+6
+
+Ú ï(Ã"
+#new-object##new-object#"2dict3
+1
+
+Û Û(6Å"
+	#map-set#	#map-set#"*Ã!Ä3
+1
+
+Ü Ü(AÇ"
+	#map-set#	#map-set#"*ÃÆ8
+6
+
+İ æ(È"
+#new-object##new-object#"2list8
+6
+
+Ş å(É"
+#new-object##new-object#"2dict4
+2
+
+ß ß(,Ê"
+	#map-set#	#map-set#"*É¼ÿ4
+2
+
+à à($Ë"
+	#map-set#	#map-set#"*É¿À2
+0
+
+á á((Ì"
+	#map-set#	#map-set#"*É()8
+6
+
+â" ä(Í"
+#new-object##new-object#"2dict4
+2
+
+ã ã(-Î"
+	#map-set#	#map-set#"*Í†Ä3
+1
+
+â ä(Ï"
+	#map-set#	#map-set#"*É/Í@
+>
+
+İ æ(Ğ"'
+#array-add-last##array-add-last#"*ÈÉ4
+2
+
+İ æ(Ñ"
+	#map-set#	#map-set#"*Ã¹È8
+6
+
+ç î(Ò"
+#new-object##new-object#"2dict8
+6
+
+è ê(Ó"
+#new-object##new-object#"2dict3
+1
+
+é é(EÕ"
+	#map-set#	#map-set#"*ÓÔ4
+2
+
+è ê(Ö"
+	#map-set#	#map-set#"*Ò—Ó8
+6
+
+ë í(×"
+#new-object##new-object#"2dict3
+1
+
+ì ì(:Ø"
+	#map-set#	#map-set#"*×”4
+2
+
+ë í(Ù"
+	#map-set#	#map-set#"*ÒÔ×3
+1
+
+ç î(Ú"
+	#map-set#	#map-set#"*Ã8Ò4
+2
+
+Ú ï(Û"
+	#map-set#	#map-set#"*÷†Ã3
+1
+
+• ğ(	Ü"
+	#map-set#	#map-set#"*ö÷0
+.
+	 ñ(İ"
+	#map-set#	#map-set#"*8
+6
+
+ò º(ß"
+#new-object##new-object#"2dict8
+6
+
+ó ¹(	á"
+#new-object##new-object#"2dict8
+6
+
+ô –(ã"
+#new-object##new-object#"2dict4
+2
+
+õ õ( å"
+	#map-set#	#map-set#"*ã†ä8
+6
+
+ö ”(ç"
+#new-object##new-object#"2dict8
+6
+
+÷ ú(é"
+#new-object##new-object#"2dict4
+2
+
+ø ø()ê"
+	#map-set#	#map-set#"*é†Ä3
+1
+
+ù ù(3ì"
+	#map-set#	#map-set#"*éë4
+2
+
+÷ ú(í"
+	#map-set#	#map-set#"*çèé8
+6
+
+û ş(î"
+#new-object##new-object#"2dict4
+2
+
+ü ü((ï"
+	#map-set#	#map-set#"*î†æ3
+1
+
+ı ı(5ñ"
+	#map-set#	#map-set#"*îğ4
+2
+
+û ş(ò"
+	#map-set#	#map-set#"*ç¼î8
+6
+
+ÿ ‚(ô"
+#new-object##new-object#"2dict4
+2
+
+€ €((õ"
+	#map-set#	#map-set#"*ô†æ3
+1
+
+ (6÷"
+	#map-set#	#map-set#"*ôö4
+2
+
+ÿ ‚(ø"
+	#map-set#	#map-set#"*çóô8
+6
+
+ƒ †(ú"
+#new-object##new-object#"2dict4
+2
+
+„ „((û"
+	#map-set#	#map-set#"*ú†æ3
+1
+
+… …(7ı"
+	#map-set#	#map-set#"*úü4
+2
+
+ƒ †(ş"
+	#map-set#	#map-set#"*çùú8
+6
+
+‡ “(€"
+#new-object##new-object#"2dict4
+2
+
+ˆ ˆ(("
+	#map-set#	#map-set#"*€†ä8
+6
+
+‰& ’(‚"
+#new-object##new-object#"2dict8
+6
+
+Š$ („"
+#new-object##new-object#"2dict4
+2
+
+‹  ‹(0…"
+	#map-set#	#map-set#"*„†æ3
+1
+
+Œ  Œ(E‡"
+	#map-set#	#map-set#"*„†4
+2
+
+Š (ˆ"
+	#map-set#	#map-set#"*‚ƒ„8
+6
+
+* ‘(Š"
+#new-object##new-object#"2dict4
+2
+
+  (0‹"
+	#map-set#	#map-set#"*Š†æ3
+1
+
+  (E"
+	#map-set#	#map-set#"*ŠŒ4
+2
+
+ ‘("
+	#map-set#	#map-set#"*‚‰Š4
+2
+
+‰ ’("
+	#map-set#	#map-set#"*€æ‚4
+2
+
+‡ “("
+	#map-set#	#map-set#"*çÿ€4
+2
+
+ö ”(‘"
+	#map-set#	#map-set#"*ãæç8
+6
+
+• •(8’"
+#new-object##new-object#"2list@
+>
+
+• •(8“"'
+#array-add-last##array-add-last#"*’¼@
+>
+
+• •(8”"'
+#array-add-last##array-add-last#"*’ó@
+>
+
+• •(8•"'
+#array-add-last##array-add-last#"*’ù3
+1
+
+• •(8–"
+	#map-set#	#map-set#"*ã(’4
+2
+
+ô –(—"
+	#map-set#	#map-set#"*áâã8
+6
+
+— µ(™"
+#new-object##new-object#"2dict4
+2
+
+˜ ˜( š"
+	#map-set#	#map-set#"*™†ä8
+6
+
+™ ³(›"
+#new-object##new-object#"2dict8
+6
+
+š (œ"
+#new-object##new-object#"2dict4
+2
+
+› ›(("
+	#map-set#	#map-set#"*œ†æ3
+1
+
+œ œ(1Ÿ"
+	#map-set#	#map-set#"*œ4
+2
+
+š ( "
+	#map-set#	#map-set#"*›èœ8
+6
+
+  ¡(¢"
+#new-object##new-object#"2dict4
+2
+
+Ÿ Ÿ()£"
+	#map-set#	#map-set#"*¢†Ä3
+1
+
+   (7¥"
+	#map-set#	#map-set#"*¢¤4
+2
+
+ ¡(¦"
+	#map-set#	#map-set#"*›¡¢8
+6
+
+¢" ¥(§"
+#new-object##new-object#"2dict4
+2
+
+£ £()¨"
+	#map-set#	#map-set#"*§†Ä3
+1
+
+¤ ¤(3©"
+	#map-set#	#map-set#"*§ë4
+2
+
+¢ ¥(ª"
+	#map-set#	#map-set#"*›½§8
+6
+
+¦ ²(«"
+#new-object##new-object#"2dict4
+2
+
+§ §((¬"
+	#map-set#	#map-set#"*«†ä8
+6
+
+¨& ±(­"
+#new-object##new-object#"2dict8
+6
+
+©$ ¬(®"
+#new-object##new-object#"2dict4
+2
+
+ª  ª(0¯"
+	#map-set#	#map-set#"*®†æ3
+1
+
+«  «(C±"
+	#map-set#	#map-set#"*®°4
+2
+
+© ¬(²"
+	#map-set#	#map-set#"*­ƒ®8
+6
+
+­* °(³"
+#new-object##new-object#"2dict4
+2
+
+®  ®(0´"
+	#map-set#	#map-set#"*³†æ3
+1
+
+¯  ¯(D¶"
+	#map-set#	#map-set#"*³µ4
+2
+
+­ °(·"
+	#map-set#	#map-set#"*­‰³4
+2
+
+¨ ±(¸"
+	#map-set#	#map-set#"*«æ­4
+2
+
+¦ ²(¹"
+	#map-set#	#map-set#"*›ÿ«4
+2
+
+™ ³(º"
+	#map-set#	#map-set#"*™æ›8
+6
+
+´ ´(<»"
+#new-object##new-object#"2list@
+>
+
+´ ´(<¼"'
+#array-add-last##array-add-last#"*»è@
+>
+
+´ ´(<½"'
+#array-add-last##array-add-last#"*»¡@
+>
+
+´ ´(<¾"'
+#array-add-last##array-add-last#"*»½3
+1
+
+´ ´(<¿"
+	#map-set#	#map-set#"*™(»4
+2
+
+— µ(À"
+	#map-set#	#map-set#"*á˜™8
+6
+
+¶ Ü(Â"
+#new-object##new-object#"2dict4
+2
+
+· ·( Ã"
+	#map-set#	#map-set#"*Â†ä8
+6
+
+¸ Ú(Ä"
+#new-object##new-object#"2dict8
+6
+
+¹ ¼(Å"
+#new-object##new-object#"2dict4
+2
+
+º º()Æ"
+	#map-set#	#map-set#"*Å†Ä3
+1
+
+» »(3È"
+	#map-set#	#map-set#"*ÅÇ4
+2
+
+¹ ¼(É"
+	#map-set#	#map-set#"*ÄèÅ8
+6
+
+½ À(Ê"
+#new-object##new-object#"2dict4
+2
+
+¾ ¾((Ë"
+	#map-set#	#map-set#"*Ê†æ3
+1
+
+¿ ¿(5Í"
+	#map-set#	#map-set#"*ÊÌ4
+2
+
+½ À(Î"
+	#map-set#	#map-set#"*Ä¼Ê8
+6
+
+Á Ä(Ï"
+#new-object##new-object#"2dict4
+2
+
+Â Â((Ğ"
+	#map-set#	#map-set#"*Ï†æ3
+1
+
+Ã Ã(6Ò"
+	#map-set#	#map-set#"*ÏÑ4
+2
+
+Á Ä(Ó"
+	#map-set#	#map-set#"*ÄóÏ8
+6
+
+Å È(Õ"
+#new-object##new-object#"2dict4
+2
+
+Æ Æ((Ö"
+	#map-set#	#map-set#"*Õ†æ3
+1
+
+Ç Ç(6Ø"
+	#map-set#	#map-set#"*Õ×4
+2
+
+Å È(Ù"
+	#map-set#	#map-set#"*ÄÔÕ8
+6
+
+É  Ì(Ú"
+#new-object##new-object#"2dict4
+2
+
+Ê Ê((Û"
+	#map-set#	#map-set#"*Ú†æ3
+1
+
+Ë Ë(1Ü"
+	#map-set#	#map-set#"*Ú4
+2
+
+É Ì(İ"
+	#map-set#	#map-set#"*ÄáÚ8
+6
+
+Í Ù(Ş"
+#new-object##new-object#"2dict4
+2
+
+Î Î((ß"
+	#map-set#	#map-set#"*Ş†ä8
+6
+
+Ï& Ø(à"
+#new-object##new-object#"2dict8
+6
+
+Ğ$ Ó(á"
+#new-object##new-object#"2dict4
+2
+
+Ñ  Ñ(0â"
+	#map-set#	#map-set#"*á†æ3
+1
+
+Ò  Ò(Eä"
+	#map-set#	#map-set#"*áã4
+2
+
+Ğ Ó(å"
+	#map-set#	#map-set#"*àƒá8
+6
+
+Ô* ×(æ"
+#new-object##new-object#"2dict4
+2
+
+Õ  Õ(0ç"
+	#map-set#	#map-set#"*æ†æ3
+1
+
+Ö  Ö(Eé"
+	#map-set#	#map-set#"*æè4
+2
+
+Ô ×(ê"
+	#map-set#	#map-set#"*à‰æ4
+2
+
+Ï Ø(ë"
+	#map-set#	#map-set#"*Şæà4
+2
+
+Í Ù(ì"
+	#map-set#	#map-set#"*ÄÿŞ4
+2
+
+¸ Ú(í"
+	#map-set#	#map-set#"*ÂæÄ8
+6
+
+Û Û(Bî"
+#new-object##new-object#"2list@
+>
+
+Û Û(Bï"'
+#array-add-last##array-add-last#"*î¼@
+>
+
+Û Û(Bğ"'
+#array-add-last##array-add-last#"*îó@
+>
+
+Û Û(Bñ"'
+#array-add-last##array-add-last#"*îÔ@
+>
+
+Û Û(Bò"'
+#array-add-last##array-add-last#"*îá3
+1
+
+Û Û(Bó"
+	#map-set#	#map-set#"*Â(î4
+2
+
+¶ Ü(ô"
+	#map-set#	#map-set#"*áÁÂ8
+6
+
+İ ê(ö"
+#new-object##new-object#"2dict4
+2
+
+Ş Ş( ÷"
+	#map-set#	#map-set#"*ö†ä8
+6
+
+ß è(ø"
+#new-object##new-object#"2dict8
+6
+
+à ã(ù"
+#new-object##new-object#"2dict4
+2
+
+á á((ú"
+	#map-set#	#map-set#"*ù†æ3
+1
+
+â â(5ü"
+	#map-set#	#map-set#"*ùû4
+2
+
+à ã(ı"
+	#map-set#	#map-set#"*øóù8
+6
+
+ä  ç(ÿ"
+#new-object##new-object#"2dict4
+2
+
+å å((€"
+	#map-set#	#map-set#"*ÿ†æ3
+1
+
+æ æ(8‚"
+	#map-set#	#map-set#"*ÿ4
+2
+
+ä ç(ƒ"
+	#map-set#	#map-set#"*øşÿ4
+2
+
+ß è(„"
+	#map-set#	#map-set#"*öæø8
+6
+
+é é(1…"
+#new-object##new-object#"2list@
+>
+
+é é(1†"'
+#array-add-last##array-add-last#"*…ó@
+>
+
+é é(1‡"'
+#array-add-last##array-add-last#"*…ş3
+1
+
+é é(1ˆ"
+	#map-set#	#map-set#"*ö(…4
+2
+
+İ ê(‰"
+	#map-set#	#map-set#"*áõö8
+6
+
+ë ˆ(‹"
+#new-object##new-object#"2dict4
+2
+
+ì ì( Œ"
+	#map-set#	#map-set#"*‹†ä8
+6
+
+í ‡("
+#new-object##new-object#"2dict8
+6
+
+î ñ("
+#new-object##new-object#"2dict4
+2
+
+ï ï(("
+	#map-set#	#map-set#"*†æ3
+1
+
+ğ ğ(E’"
+	#map-set#	#map-set#"*‘4
+2
+
+î ñ(“"
+	#map-set#	#map-set#"*8
+6
+
+ò †(•"
+#new-object##new-object#"2dict4
+2
+
+ó ó((–"
+	#map-set#	#map-set#"*•†ä8
+6
+
+ô& …(—"
+#new-object##new-object#"2dict8
+6
+
+õ" ø(˜"
+#new-object##new-object#"2dict4
+2
+
+ö  ö(1™"
+	#map-set#	#map-set#"*˜†Ä3
+1
+
+÷  ÷(8›"
+	#map-set#	#map-set#"*˜š4
+2
+
+õ ø(œ"
+	#map-set#	#map-set#"*—è˜8
+6
+
+ù$ ü("
+#new-object##new-object#"2dict4
+2
+
+ú  ú(0"
+	#map-set#	#map-set#"*†æ3
+1
+
+û  û(< "
+	#map-set#	#map-set#"*Ÿ4
+2
+
+ù ü(¡"
+	#map-set#	#map-set#"*—¼8
+6
+
+ı% €(¢"
+#new-object##new-object#"2dict4
+2
+
+ş  ş(0£"
+	#map-set#	#map-set#"*¢†æ3
+1
+
+ÿ  ÿ(=¤"
+	#map-set#	#map-set#"*¢û4
+2
+
+ı €(¥"
+	#map-set#	#map-set#"*—ó¢8
+6
+
+$ „(§"
+#new-object##new-object#"2dict4
+2
+
+‚  ‚(0¨"
+	#map-set#	#map-set#"*§†æ3
+1
+
+ƒ  ƒ(Nª"
+	#map-set#	#map-set#"*§©4
+2
+
+ „(«"
+	#map-set#	#map-set#"*—¦§4
+2
+
+ô …(¬"
+	#map-set#	#map-set#"*•æ—4
+2
+
+ò †(­"
+	#map-set#	#map-set#"*”•4
+2
+
+í ‡(®"
+	#map-set#	#map-set#"*‹æ4
+2
+
+ë ˆ(¯"
+	#map-set#	#map-set#"*áŠ‹8
+6
+
+‰ £(±"
+#new-object##new-object#"2dict4
+2
+
+Š Š( ²"
+	#map-set#	#map-set#"*±†ä8
+6
+
+‹ ¡(³"
+#new-object##new-object#"2dict8
+6
+
+Œ (´"
+#new-object##new-object#"2dict4
+2
+
+ ((µ"
+	#map-set#	#map-set#"*´†æ3
+1
+
+ (9·"
+	#map-set#	#map-set#"*´¶4
+2
+
+Œ (¸"
+	#map-set#	#map-set#"*³¼´8
+6
+
+ “(¹"
+#new-object##new-object#"2dict4
+2
+
+‘ ‘((º"
+	#map-set#	#map-set#"*¹†æ3
+1
+
+’ ’(5»"
+	#map-set#	#map-set#"*¹û4
+2
+
+ “(¼"
+	#map-set#	#map-set#"*³ó¹8
+6
+
+”  —(½"
+#new-object##new-object#"2dict4
+2
+
+• •((¾"
+	#map-set#	#map-set#"*½†æ3
+1
+
+– –(8¿"
+	#map-set#	#map-set#"*½4
+2
+
+” —(À"
+	#map-set#	#map-set#"*³ş½8
+6
+
+˜ œ(Á"
+#new-object##new-object#"2dict4
+2
+
+™ ™((Â"
+	#map-set#	#map-set#"*Á†æ3
+1
+
+š š(FÃ"
+	#map-set#	#map-set#"*Á©8
+6
+
+›  ›(6Å"
+#new-object##new-object#"2list@
+>
+
+›  ›(6Ç"'
+#array-add-last##array-add-last#"*ÅÆ@
+>
+
+›  ›(6É"'
+#array-add-last##array-add-last#"*ÅÈ4
+2
+
+› ›(6Ê"
+	#map-set#	#map-set#"*ÁÄÅ4
+2
+
+˜ œ(Ë"
+	#map-set#	#map-set#"*³¦Á8
+6
+
+"  (Í"
+#new-object##new-object#"2dict4
+2
+
+ ((Î"
+	#map-set#	#map-set#"*Í†æ3
+1
+
+Ÿ Ÿ(KĞ"
+	#map-set#	#map-set#"*ÍÏ4
+2
+
+  (Ñ"
+	#map-set#	#map-set#"*³ÌÍ4
+2
+
+‹ ¡(Ò"
+	#map-set#	#map-set#"*±æ³8
+6
+
+¢ ¢(AÓ"
+#new-object##new-object#"2list@
+>
+
+¢ ¢(AÔ"'
+#array-add-last##array-add-last#"*Ó¼@
+>
+
+¢ ¢(AÕ"'
+#array-add-last##array-add-last#"*Óó@
+>
+
+¢ ¢(AÖ"'
+#array-add-last##array-add-last#"*Óş@
+>
+
+¢ ¢(A×"'
+#array-add-last##array-add-last#"*Ó¦3
+1
+
+¢ ¢(AØ"
+	#map-set#	#map-set#"*±(Ó4
+2
+
+‰ £(Ù"
+	#map-set#	#map-set#"*á°±8
+6
+
+¤ ¸(Û"
+#new-object##new-object#"2dict4
+2
+
+¥ ¥( Ü"
+	#map-set#	#map-set#"*Û†ä8
+6
+
+¦ ·(İ"
+#new-object##new-object#"2dict8
+6
+
+§ ª(Ş"
+#new-object##new-object#"2dict4
+2
+
+¨ ¨()ß"
+	#map-set#	#map-set#"*Ş†Ä3
+1
+
+© ©(0à"
+	#map-set#	#map-set#"*Şš4
+2
+
+§ ª(á"
+	#map-set#	#map-set#"*İèŞ8
+6
+
+« ®(â"
+#new-object##new-object#"2dict4
+2
+
+¬ ¬((ã"
+	#map-set#	#map-set#"*â†æ3
+1
+
+­ ­(4ä"
+	#map-set#	#map-set#"*âŸ4
+2
+
+« ®(å"
+	#map-set#	#map-set#"*İ¼â8
+6
+
+¯ ²(æ"
+#new-object##new-object#"2dict4
+2
+
+° °((ç"
+	#map-set#	#map-set#"*æ†æ3
+1
+
+± ±(5è"
+	#map-set#	#map-set#"*æû4
+2
+
+¯ ²(é"
+	#map-set#	#map-set#"*İóæ8
+6
+
+³ ¶(ê"
+#new-object##new-object#"2dict4
+2
+
+´ ´((ë"
+	#map-set#	#map-set#"*ê†æ3
+1
+
+µ µ(4í"
+	#map-set#	#map-set#"*êì4
+2
+
+³ ¶(î"
+	#map-set#	#map-set#"*İ¦ê4
+2
+
+¦ ·(ï"
+	#map-set#	#map-set#"*Ûæİ4
+2
+
+¤ ¸(ğ"
+	#map-set#	#map-set#"*áÚÛ4
+2
+
+ó ¹(	ñ"
+	#map-set#	#map-set#"*ßàá3
+1
+
+ò º(ò"
+	#map-set#	#map-set#"*Şß
+ »( *G/Users/Zuly/Documents/GitHub/SOFTWARE-FINAL/se498-final/app/api/spec.py

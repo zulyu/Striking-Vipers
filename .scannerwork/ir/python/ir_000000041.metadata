@@ -1,10 +1,6 @@
-game.Game.draw_login_screen
+main.MatchingGame.process_match
 false
-83a379a5e4c86cb3150f0ad819f0c9a9
+74ea9a5780c913e437924a2a6e4bdfba
 builtins.len
 ==
-blit
-fill
-get_width
-rect
-render
+get_ticks

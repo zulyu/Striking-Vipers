@@ -1,0 +1,7 @@
+app.api.routes.ClassResource.delete
+false
+283d30b2799cbb0964ae130a2f9ac146
+==
+commit
+delete
+get_or_404

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Striking Vipers - Game Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .game-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .game-button {
+            background-color: #6464ff;
+            color: white;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .game-button:hover {
+            background-color: #4949cc;
+        }
+        .logout-btn {
+            margin-top: 40px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background-color: #dd2222;
+        }
+        .welcome-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Striking Vipers</h1>
+        <p class="welcome-text">Welcome, testuser! Please select a game level:</p>
+        
+        <div class="game-buttons">
+            <button class="game-button" id="typing-game">Typing Game</button>
+            <button class="game-button" id="dragging-game">Dragging Game</button>
+            <button class="game-button" id="matching-game">Matching Game</button>
+        </div>
+        
+        <button class="logout-btn" id="logout-btn">Logout</button>
+    </div>
+
+    <script>
+        // Version 2.0 - Added direct links and fixed caching issues
+        
+        // Handle game selections
+        document.getElementById('typing-game').addEventListener('click', function() {
+            console.log("Typing game button clicked");
+            window.location.href = 'typing_game.html';
+        });
+        
+        document.getElementById('dragging-game').addEventListener('click', function() {
+            // Alert for now since this game isn't implemented
+            alert("The Dragging Game is not yet implemented. Try the Typing or Matching Game!");
+        });
+        
+        document.getElementById('matching-game').addEventListener('click', function() {
+            // Redirect to the actual game
+            console.log("Matching game button clicked");
+            window.location.href = 'simple_game.html';
+        });
+        
+        // Handle logout
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html> 

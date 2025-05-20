@@ -1,5 +1,4 @@
-app.api.routes.validate_teacher
+main.Game.handle_login
 false
-77e8d3aba392577dfc1b0ee8fa6887d1
-==
-get
+d8304699e0928d6b81aecb61e00d9d82
+builtins.print

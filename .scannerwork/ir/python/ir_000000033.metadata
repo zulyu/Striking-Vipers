@@ -1,12 +1,4 @@
-game.init_db
+app.models.Student.check_password
 false
-ac91c4cfee7f391b1ec505d128f6e0f5
-builtins.print
-os.path.exists
-os.remove
-sqlite3.dbapi2.connect
-==
-close
-commit
-cursor
-execute
+6971a319b899d3298b5a63008c1070d6
+werkzeug.security.check_password_hash

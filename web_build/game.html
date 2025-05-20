@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Striking Vipers - Game Selection</title>
     <style>
         body {
@@ -44,6 +47,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: block;
         }
         .game-button:hover {
             background-color: #4949cc;
@@ -76,34 +80,19 @@
         <p class="welcome-text">Welcome, testuser! Please select a game level:</p>
         
         <div class="game-buttons">
-            <button class="game-button" id="typing-game">Typing Game</button>
-            <button class="game-button" id="dragging-game">Dragging Game</button>
-            <button class="game-button" id="matching-game">Matching Game</button>
+            <a href="typing_button.html" class="game-button">Typing Game</a>
+            <a href="dragging_game.html" class="game-button">Dragging Game</a>
+            <a href="simple_game.html?v=20250514" class="game-button">Matching Game</a>
         </div>
         
-        <button class="logout-btn" id="logout-btn">Logout</button>
+        <a href="login.html" class="logout-btn">Logout</a>
     </div>
 
     <script>
-        // Handle game selections
-        document.getElementById('typing-game').addEventListener('click', function() {
-            // Alert for now since this game isn't implemented
-            alert("The Typing Game is not yet implemented. Try the Matching Game!");
-        });
-        
+        // Only needs to handle the dragging game button now
         document.getElementById('dragging-game').addEventListener('click', function() {
             // Alert for now since this game isn't implemented
-            alert("The Dragging Game is not yet implemented. Try the Matching Game!");
-        });
-        
-        document.getElementById('matching-game').addEventListener('click', function() {
-            // Redirect to the actual game
-            window.location.href = 'game_actual.html';
-        });
-        
-        // Handle logout
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            window.location.href = 'login.html';
+            alert("The Dragging Game is not yet implemented. Try the Typing or Matching Game!");
         });
     </script>
 </body>

@@ -1,5 +1,4 @@
-app.api.routes.validate_class
+main.Game.handle_signup
 false
-f92d54442b38950b9656200cf6a586a4
-==
-get
+14ea5f4af8e46a9a44ec00d0d671ef4e
+builtins.print

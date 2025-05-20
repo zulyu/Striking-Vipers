@@ -1,0 +1,8 @@
+web_game.Game.__init__
+false
+7a969b9d801ca7cb80e2537d2da70a63
+web_game.init_db
+==
+set_caption
+set_mode
+setup_input_boxes

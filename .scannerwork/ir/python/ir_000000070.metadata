@@ -1,0 +1,8 @@
+app.api.create_app
+false
+3eb29264720ed1b73537af47c9b6a6ad
+flask.app.Flask.__init__
+==
+add_namespace
+from_object
+init_app

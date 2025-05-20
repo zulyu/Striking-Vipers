@@ -1,6 +1,7 @@
-/Users/Zuly/Documents/GitHub/SOFTWARE-FINAL/se498-final/app/api/routes.#__main__
+app.api.routes.TeacherResource.delete
 false
-d34f26c14ea9fbe0a729f27ae4674ffb
+1c0464fc26c9cb5fc57efe3f9d4360a2
 ==
-Integer
-String
+commit
+delete
+get_or_404

@@ -1,0 +1,10 @@
+web_game.init_db
+false
+375bc7a75e8fa264801839a75e30f6bf
+builtins.print
+sqlite3.dbapi2.connect
+==
+close
+commit
+cursor
+execute

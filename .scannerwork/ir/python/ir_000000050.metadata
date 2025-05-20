@@ -1,5 +1,6 @@
-app.api.routes.TeacherResource.get
+main.init_game
 false
-5d3dc923d1abb61625976fa7267832c8
+8cd93e351e2f10dd0faca223c9809681
+main.Game.__init__
 ==
-get_or_404
+run

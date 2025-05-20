@@ -1,6 +1,5 @@
-game.init_game
+main.Game.setup_input_boxes
 false
-987d6148de79d29842aabf661ee785e6
-game.Game.__init__
+175458a86e6165a902bcc408b4808cb3
 ==
-run
+Rect

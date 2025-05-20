@@ -1,8 +1,5 @@
-game.Game.__init__
+main.MatchingGame.__init__
 false
-7ee75b50342ab077f544d2ba25bdc486
-game.init_db
+3de71050cf3c951af7ed4d257ae6223e
 ==
-set_caption
-set_mode
-setup_input_boxes
+initialize_cards

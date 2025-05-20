@@ -1,7 +1,5 @@
-app.api.routes.StudentResource.delete
+app.api.routes.TeacherResource.get
 false
-6ba303b52eca0edaffbd141af7fd06a5
+2101531acfe24cd264380420ef08eea1
 ==
-commit
-delete
 get_or_404
