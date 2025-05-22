@@ -2,13 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Striking Vipers - Login</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
@@ -16,119 +14,405 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
-        .login-container {
+        
+        .container {
             background-color: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
             text-align: center;
         }
+        
         h1 {
             color: #333;
             margin-bottom: 30px;
         }
-        .input-group {
+        
+        .form-group {
             margin-bottom: 20px;
             text-align: left;
         }
+        
         label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
             color: #555;
+            font-weight: bold;
         }
+        
         input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 12px;
+            border: 2px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
             box-sizing: border-box;
+            transition: border-color 0.3s;
         }
-        button {
-            background-color: #4CAF50;
+        
+        input:focus {
+            border-color: #6464ff;
+            outline: none;
+        }
+        
+        .btn {
+            background-color: #6464ff;
             color: white;
             border: none;
             padding: 12px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
             margin-top: 10px;
+            transition: background-color 0.3s;
         }
-        button:hover {
-            background-color: #45a049;
+        
+        .btn:hover {
+            background-color: #4949cc;
         }
-        .info-text {
+        
+        .error-message {
+            color: #ff4444;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #4CAF50;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .switch-form {
             margin-top: 20px;
+            color: #666;
+        }
+        
+        .switch-form a {
+            color: #6464ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            display: none;
+            margin: 10px auto;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #6464ff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .sample-credentials {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #ddd;
             color: #666;
             font-size: 14px;
         }
-        .error-message {
-            color: red;
-            margin-top: 10px;
-            display: none;
+        
+        .sample-credentials h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .sample-credentials p {
+            margin: 5px 0;
+        }
+        
+        input::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .format-hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="container">
         <h1>Striking Vipers</h1>
-        <div class="input-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email">
+        
+        <!-- Login Form -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="loading" id="loginLoading"></div>
+            <div class="error-message" id="loginError"></div>
+            <div class="success-message" id="loginSuccess"></div>
+            
+            <div class="sample-credentials">
+                <h3>Sample Login Credentials:</h3>
+                <p>Email: test@example.com</p>
+                <p>Password: password123</p>
+            </div>
+        </form>
+        
+        <!-- Signup Form (Hidden by default) -->
+        <form id="signupForm" style="display: none;">
+            <div class="form-group">
+                <label for="signupName">Full Name:</label>
+                <input type="text" id="signupName" name="name" required placeholder="Enter your full name">
+                <div class="format-hint">Format: First and Last Name (e.g., John Smith)</div>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="email" required placeholder="Enter your email">
+                <div class="format-hint">Format: valid email address (e.g., student@school.edu)</div>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="password" required placeholder="Enter your password">
+                <div class="format-hint">Format: At least 8 characters, including letters and numbers</div>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px;">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </div>
+            <div class="form-group" id="classCodeGroup">
+                <label for="classCode">Class Code:</label>
+                <input type="text" id="classCode" name="class_code" placeholder="Enter your class code">
+                <div class="format-hint">Format: 2-3 letters followed by 3-4 numbers (e.g., CS101)</div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="loading" id="signupLoading"></div>
+            <div class="error-message" id="signupError"></div>
+            <div class="success-message" id="signupSuccess"></div>
+        </form>
+        
+        <div class="switch-form">
+            <span id="loginText">Don't have an account? </span>
+            <a href="#" id="switchForm">Sign Up</a>
         </div>
-        <div class="input-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" placeholder="Enter your username">
-        </div>
-        <div class="input-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" placeholder="Enter your password">
-        </div>
-        <div class="input-group">
-            <label for="classcode">Class Code:</label>
-            <input type="text" id="classcode" placeholder="Enter your class code">
-        </div>
-        <button id="login-btn">Login</button>
-        <div id="error-message" class="error-message">Invalid login credentials. Please try again.</div>
-        <p class="info-text">
-            Test Account:<br>
-            Email: test@example.com<br>
-            Username: testuser<br>
-            Password: password123<br>
-            Class Code: CS101
-        </p>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Clear any cached data from previous sessions
-            localStorage.clear();
-            sessionStorage.clear();
+        const API_URL = '/api';
+        let isLoginForm = true;
+
+        // Form switching
+        document.getElementById('switchForm').addEventListener('click', function(e) {
+            e.preventDefault();
+            isLoginForm = !isLoginForm;
+            document.getElementById('loginForm').style.display = isLoginForm ? 'block' : 'none';
+            document.getElementById('signupForm').style.display = isLoginForm ? 'none' : 'block';
+            document.getElementById('switchForm').textContent = isLoginForm ? 'Sign Up' : 'Login';
+            document.getElementById('loginText').textContent = isLoginForm ? "Don't have an account? " : "Already have an account? ";
+        });
+
+        // Show/hide class code field based on role
+        document.getElementById('role').addEventListener('change', function() {
+            document.getElementById('classCodeGroup').style.display = 
+                this.value === 'student' ? 'block' : 'none';
+        });
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
             
-            document.getElementById('login-btn').addEventListener('click', function() {
-                const email = document.getElementById('email').value;
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                const classcode = document.getElementById('classcode').value;
+            document.getElementById('loginLoading').style.display = 'block';
+            document.getElementById('loginError').style.display = 'none';
+            
+            try {
+                // First try API login
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
                 
-                // Check if login matches test account
-                if (email === 'test@example.com' && username === 'testuser' && 
-                    password === 'password123' && classcode === 'CS101') {
-                    // Add a timestamp to prevent caching issues
-                    const timestamp = new Date().getTime();
-                    // Redirect to the game with cache busting parameter
-                    window.location.href = 'game.html?v=' + timestamp;
+                if (response.ok) {
+                    const data = await response.json();
+                    // Store token and user info
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Show success message
+                    document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting...';
+                    document.getElementById('loginSuccess').style.display = 'block';
+                    
+                    // Redirect to game page
+                    setTimeout(() => {
+                        window.location.href = 'game.html';
+                    }, 1000);
                 } else {
-                    // Show error message
-                    document.getElementById('error-message').style.display = 'block';
+                    // If API login fails, try local test credentials
+                    if (email === 'test@example.com' && password === 'password123') {
+                        // Store test user info
+                        const testUser = {
+                            id: 1,
+                            name: 'Test User',
+                            email: 'test@example.com',
+                            role: 'student'
+                        };
+                        localStorage.setItem('user', JSON.stringify(testUser));
+                        
+                        // Show success message
+                        document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting...';
+                        document.getElementById('loginSuccess').style.display = 'block';
+                        
+                        // Redirect to game page
+                        setTimeout(() => {
+                            window.location.href = 'game.html';
+                        }, 1000);
+                    } else {
+                        document.getElementById('loginError').textContent = 'Invalid credentials';
+                        document.getElementById('loginError').style.display = 'block';
+                    }
+                }
+            } catch (error) {
+                // If API is not available, try local test credentials
+                if (email === 'test@example.com' && password === 'password123') {
+                    // Store test user info
+                    const testUser = {
+                        id: 1,
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        role: 'student'
+                    };
+                    localStorage.setItem('user', JSON.stringify(testUser));
+                    
+                    // Show success message
+                    document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting...';
+                    document.getElementById('loginSuccess').style.display = 'block';
+                    
+                    // Redirect to game page
+                    setTimeout(() => {
+                        window.location.href = 'game.html';
+                    }, 1000);
+                } else {
+                    document.getElementById('loginError').textContent = 'Invalid credentials';
+                    document.getElementById('loginError').style.display = 'block';
+                }
+            } finally {
+                document.getElementById('loginLoading').style.display = 'none';
+            }
+        });
+
+        // Signup form submission
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate password format
+            const password = document.getElementById('signupPassword').value;
+            if (password.length < 8 || !/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+                document.getElementById('signupError').textContent = 'Password must be at least 8 characters and include both letters and numbers';
+                document.getElementById('signupError').style.display = 'block';
+                return;
+            }
+            
+            // Validate class code format if student
+            const role = document.getElementById('role').value;
+            const classCode = document.getElementById('classCode').value;
+            if (role === 'student') {
+                const classCodeRegex = /^[A-Za-z]{2,3}\d{3,4}$/;
+                if (!classCodeRegex.test(classCode)) {
+                    document.getElementById('signupError').textContent = 'Class code must be 2-3 letters followed by 3-4 numbers (e.g., CS101)';
+                    document.getElementById('signupError').style.display = 'block';
+                    return;
+                }
+            }
+            
+            // Continue with existing signup logic
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            
+            document.getElementById('signupLoading').style.display = 'block';
+            document.getElementById('signupError').style.display = 'none';
+            
+            try {
+                const response = await fetch(`${API_URL}/auth/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password,
+                        role,
+                        class_code: role === 'student' ? classCode : undefined
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('signupSuccess').textContent = 'Signup successful! Please login.';
+                    document.getElementById('signupSuccess').style.display = 'block';
+                    
+                    // Switch back to login form after successful signup
+                    setTimeout(() => {
+                        isLoginForm = true;
+                        document.getElementById('loginForm').style.display = 'block';
+                        document.getElementById('signupForm').style.display = 'none';
+                        document.getElementById('switchForm').textContent = 'Sign Up';
+                        document.getElementById('loginText').textContent = "Don't have an account? ";
+                        document.getElementById('email').value = email;
+                    }, 2000);
+                } else {
+                    document.getElementById('signupError').textContent = data.message || 'Signup failed';
+                    document.getElementById('signupError').style.display = 'block';
+                }
+            } catch (error) {
+                document.getElementById('signupError').textContent = 'An error occurred. Please try again.';
+                document.getElementById('signupError').style.display = 'block';
+            } finally {
+                document.getElementById('signupLoading').style.display = 'none';
+            }
+        });
+
+        // Clear format hints when input is focused
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                const hint = this.nextElementSibling;
+                if (hint && hint.classList.contains('format-hint')) {
+                    hint.style.display = 'none';
+                }
+            });
+            
+            input.addEventListener('blur', function() {
+                const hint = this.nextElementSibling;
+                if (hint && hint.classList.contains('format-hint') && !this.value) {
+                    hint.style.display = 'block';
                 }
             });
         });
