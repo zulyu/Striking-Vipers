@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Striking Vipers Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #canvas {
+            border: 2px solid #333;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1280" height="800"></canvas>
+    <script type="module">
+        import { loadPyScript } from "https://pyscript.net/latest/pyscript.js";
+        loadPyScript("main.py");
+    </script>
+</body>
+</html> 

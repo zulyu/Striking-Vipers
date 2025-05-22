@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=game.html?v=2">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <h1>Redirecting to game menu...</h1>
+    <p>If you are not redirected automatically, <a href="game.html?v=2">click here</a>.</p>
+    <script>
+        // Clear any cached JavaScript
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // Force cache reload
+        window.location.replace("game.html?v=" + new Date().getTime());
+    </script>
+</body>
+</html> 

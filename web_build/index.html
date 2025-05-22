@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Striking Vipers Educational Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        
+        .header {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin: 2rem 0;
+        }
+        
+        .menu-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .menu-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .game-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .game-button {
+            padding: 16px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: #3f51b5;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .game-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: #303f9f;
+        }
+        
+        .account-info {
+            margin-top: 2rem;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .logout-button {
+            margin-top: 1rem;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+        
+        .direct-links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .direct-links a {
+            color: #3f51b5;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .direct-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        STRIKING VIPERS
+    </div>
+    
+    <div class="menu-container">
+        <div class="menu-title">Select Game Level</div>
+        
+        <div class="game-options">
+            <a href="game.html?v=20250514" class="game-button">
+                Enter Game Menu
+            </a>
+            <a href="typing_button.html" class="game-button">
+                Typing Game
+            </a>
+            <a href="simple_game.html?v=20250514" class="game-button">
+                Matching Game
+            </a>
+        </div>
+        
+        <div class="direct-links">
+            <a href="links.html">View All Direct Links</a>
+        </div>
+        
+        <div class="account-info">
+            <p>Logged in as: <span id="username">Student</span></p>
+            <p>Class: <span id="classCode">CS101</span></p>
+            <a href="login.html" class="logout-button">Logout</a>
+        </div>
+    </div>
+    
+    <script>
+        // Function to parse query parameters (for potential user info)
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        // Set username and class code from query parameters or local storage
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = getQueryParam('username') || localStorage.getItem('username') || 'Student';
+            const classCode = getQueryParam('classCode') || localStorage.getItem('classCode') || 'CS101';
+            
+            document.getElementById('username').textContent = username;
+            document.getElementById('classCode').textContent = classCode;
+            
+            // Store in local storage for persistence
+            localStorage.setItem('username', username);
+            localStorage.setItem('classCode', classCode);
+        });
+    </script>
+</body>
+</html> 

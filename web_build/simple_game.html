@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Striking Vipers - Matching Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .card {
+            height: 120px;
+            border-radius: 5px;
+            background-color: #6464ff;
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.3s;
+            transform-style: preserve-3d;
+        }
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        .card-front {
+            background-color: #6464ff;
+            color: white;
+        }
+        .card-back {
+            background-color: #f0f0f0;
+            color: #333;
+            transform: rotateY(180deg);
+        }
+        .card.matched .card-back {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .feedback {
+            height: 50px;
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+        }
+        .exit-button {
+            background-color: #ff4444;
+        }
+        .exit-button:hover {
+            background-color: #dd2222;
+        }
+        .next-button {
+            background-color: #4CAF50;
+        }
+        .next-button:hover {
+            background-color: #3e8e41;
+        }
+        .game-over-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .game-over-message {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .game-over-message h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .restart-button {
+            background-color: #4CAF50;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Matching Game</h1>
+        <div class="feedback" id="feedback"></div>
+        <div class="game-board" id="gameBoard"></div>
+        <div class="controls">
+            <button class="button exit-button" id="exitButton">Exit</button>
+            <button class="button next-button" id="nextButton">Next</button>
+        </div>
+    </div>
+
+    <div class="game-over-overlay" id="gameOverOverlay">
+        <div class="game-over-message">
+            <h2>Game Over!</h2>
+            <p>You've matched all the pairs!</p>
+            <button class="button restart-button" id="restartButton">Play Again</button>
+            <button class="button exit-button" id="exitGameOverButton">Exit</button>
+        </div>
+    </div>
+
+    <script>
+        // Game data
+        const pairs = [
+            { type: "int", value: "1" },
+            { type: "float", value: "1.0" },
+            { type: "str", value: '"hello"' },
+            { type: "list", value: "[1,2,3]" },
+            { type: "dict", value: '{"key":"value"}' },
+            { type: "bool", value: "True" }
+        ];
+
+        // Game state
+        let cards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let canFlip = true;
+
+        // DOM elements
+        const gameBoard = document.getElementById('gameBoard');
+        const feedback = document.getElementById('feedback');
+        const exitButton = document.getElementById('exitButton');
+        const nextButton = document.getElementById('nextButton');
+        const gameOverOverlay = document.getElementById('gameOverOverlay');
+        const restartButton = document.getElementById('restartButton');
+        const exitGameOverButton = document.getElementById('exitGameOverButton');
+
+        // Initialize the game
+        function initGame() {
+            // Reset game state
+            cards = [];
+            flippedCards = [];
+            matchedPairs = 0;
+            canFlip = true;
+            gameBoard.innerHTML = '';
+            feedback.textContent = '';
+            gameOverOverlay.style.display = 'none';
+            nextButton.disabled = true;  // Disable next button initially
+            nextButton.style.display = 'block';  // Ensure button is visible
+
+            // Create cards array
+            pairs.forEach(pair => {
+                // Add type card
+                cards.push({
+                    id: Math.random().toString(36).substr(2, 9),
+                    type: pair.type,
+                    value: pair.type,
+                    isType: true,
+                    matched: false
+                });
+                
+                // Add value card
+                cards.push({
+                    id: Math.random().toString(36).substr(2, 9),
+                    type: pair.type,
+                    value: pair.value,
+                    isType: false,
+                    matched: false
+                });
+            });
+
+            // Shuffle cards
+            cards.sort(() => Math.random() - 0.5);
+
+            // Create card elements
+            cards.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                cardElement.dataset.id = card.id;
+                
+                const cardInner = document.createElement('div');
+                cardInner.className = 'card-inner';
+                
+                const cardFront = document.createElement('div');
+                cardFront.className = 'card-front';
+                cardFront.textContent = '?';
+                
+                const cardBack = document.createElement('div');
+                cardBack.className = 'card-back';
+                cardBack.textContent = card.value;
+                
+                cardInner.appendChild(cardFront);
+                cardInner.appendChild(cardBack);
+                cardElement.appendChild(cardInner);
+                
+                cardElement.addEventListener('click', () => flipCard(card.id));
+                
+                gameBoard.appendChild(cardElement);
+            });
+        }
+
+        // Flip a card
+        function flipCard(cardId) {
+            if (!canFlip) return;
+            
+            const card = cards.find(c => c.id === cardId);
+            const cardElement = document.querySelector(`.card[data-id="${cardId}"]`);
+            
+            // Prevent flipping already matched or flipped cards
+            if (card.matched || flippedCards.includes(card)) return;
+            
+            // Flip the card
+            cardElement.classList.add('flipped');
+            flippedCards.push(card);
+            
+            // Check for match if two cards are flipped
+            if (flippedCards.length === 2) {
+                canFlip = false;
+                setTimeout(checkForMatch, 500);  // Wait for flip animation
+            }
+        }
+
+        // Check if the flipped cards match
+        function checkForMatch() {
+            const [card1, card2] = flippedCards;
+            
+            // Cards match if they have the same type and one is type and one is value
+            if (card1.type === card2.type && card1.isType !== card2.isType) {
+                // Match found
+                card1.matched = true;
+                card2.matched = true;
+                
+                // Mark cards as matched
+                document.querySelector(`.card[data-id="${card1.id}"]`).classList.add('matched');
+                document.querySelector(`.card[data-id="${card2.id}"]`).classList.add('matched');
+                
+                matchedPairs++;
+                feedback.textContent = 'Match!';
+                
+                // Check if game is over
+                checkGameCompletion();
+                
+                // Reset for next turn
+                flippedCards = [];
+                canFlip = true;
+            } else {
+                // No match
+                feedback.textContent = 'Try again!';
+                
+                // Flip cards back after delay
+                setTimeout(() => {
+                    document.querySelector(`.card[data-id="${card1.id}"]`).classList.remove('flipped');
+                    document.querySelector(`.card[data-id="${card2.id}"]`).classList.remove('flipped');
+                    flippedCards = [];
+                    canFlip = true;
+                }, 1000);
+            }
+        }
+
+        // Check if all pairs are matched
+        function checkGameCompletion() {
+            if (matchedPairs === pairs.length) {
+                gameOverOverlay.style.display = 'flex';
+                nextButton.disabled = false;  // Enable next button
+                nextButton.style.display = 'block';  // Ensure button is visible
+            }
+        }
+
+        // Event listeners
+        exitButton.addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+
+        nextButton.addEventListener('click', () => {
+            window.location.href = 'typing_game.html';
+        });
+
+        restartButton.addEventListener('click', initGame);
+
+        exitGameOverButton.addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+
+        // Start the game
+        initGame();
+    </script>
+</body>
+</html> 

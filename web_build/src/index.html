@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Striking Vipers Game</title>
+    <!-- Base64 encoded favicon (16x16 pixel blue square) -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAB8SURBVDiNY2AYBYMRMDIyMjAyMjL8//+f4f///wz//v1j+P//P8P///8Z/v//z/Dv3z+Gf//+Mfz9+5fh79+/DH/+/GH4/fs3w69fvxh+/vzJ8OPHD4bv378zfPv2jeHr168MX758Yfj8+TPDp0+fGD5+/Mjw4cMHhvfv3zO8e/eO4e3btwwA6XwXgQxqgFQAAAAASUVORK5CYII=">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            width: 1280px;
+            height: 800px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    <script type="module">
+        import { main } from './main.py';
+        main();
+    </script>
+</body>
+</html> 

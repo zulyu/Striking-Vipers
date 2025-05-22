@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Striking Vipers API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #444;
+        }
+        .endpoint {
+            background-color: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .endpoint.post {
+            border-left-color: #28a745;
+        }
+        .endpoint.get {
+            border-left-color: #007bff;
+        }
+        .endpoint.put {
+            border-left-color: #fd7e14;
+        }
+        .endpoint.delete {
+            border-left-color: #dc3545;
+        }
+        .method {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+        }
+        .post {
+            background-color: #28a745;
+        }
+        .get {
+            background-color: #007bff;
+        }
+        .put {
+            background-color: #fd7e14;
+        }
+        .delete {
+            background-color: #dc3545;
+        }
+        .path {
+            font-family: monospace;
+            font-size: 1.1em;
+            margin-left: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .description {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .param {
+            font-family: monospace;
+            background-color: #f1f1f1;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .section {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .response-code {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        .code-200 {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .code-201 {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .code-400 {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .code-401 {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .code-404 {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Striking Vipers API Documentation</h1>
+    <p>API version: 1.0</p>
+    <p>This documentation provides information about the available endpoints in the Striking Vipers API.</p>
+
+    <div class="section">
+        <h2>Authentication</h2>
+
+        <div class="endpoint post">
+            <span class="method post">POST</span>
+            <span class="path">/api/auth/login</span>
+            <div class="description">
+                <p>Authenticate a user and return a JWT token.</p>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">email</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>User's email address</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">password</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>User's password</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Login successful</li>
+                    <li><span class="response-code code-401">401</span> Invalid credentials</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint post">
+            <span class="method post">POST</span>
+            <span class="path">/api/auth/signup</span>
+            <div class="description">
+                <p>Register a new user (student or teacher).</p>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">name</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>User's full name</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">email</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>User's email address</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">password</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>User's password</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">role</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>User's role ("student" or "teacher")</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">class_code</span></td>
+                        <td>string</td>
+                        <td>No (Yes for students)</td>
+                        <td>Class code (required for students)</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-201">201</span> User created successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Teachers</h2>
+
+        <div class="endpoint get">
+            <span class="method get">GET</span>
+            <span class="path">/api/teachers</span>
+            <div class="description">
+                <p>Get a list of all teachers.</p>
+                
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> List of teachers returned successfully</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint post">
+            <span class="method post">POST</span>
+            <span class="path">/api/teachers</span>
+            <div class="description">
+                <p>Create a new teacher.</p>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">name</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Teacher's name</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">email</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Teacher's email</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">subject</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Subject taught by the teacher</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-201">201</span> Teacher created successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input / Email already exists</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint get">
+            <span class="method get">GET</span>
+            <span class="path">/api/teachers/{teacher_id}</span>
+            <div class="description">
+                <p>Get a specific teacher by ID.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">teacher_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Teacher's unique identifier</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Teacher returned successfully</li>
+                    <li><span class="response-code code-404">404</span> Teacher not found</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint put">
+            <span class="method put">PUT</span>
+            <span class="path">/api/teachers/{teacher_id}</span>
+            <div class="description">
+                <p>Update a specific teacher.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">teacher_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Teacher's unique identifier</td>
+                    </tr>
+                </table>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">name</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Teacher's name</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">email</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Teacher's email</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">subject</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Subject taught by the teacher</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Teacher updated successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input / Email already exists</li>
+                    <li><span class="response-code code-404">404</span> Teacher not found</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint delete">
+            <span class="method delete">DELETE</span>
+            <span class="path">/api/teachers/{teacher_id}</span>
+            <div class="description">
+                <p>Delete a specific teacher.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">teacher_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Teacher's unique identifier</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-204">204</span> Teacher deleted successfully</li>
+                    <li><span class="response-code code-404">404</span> Teacher not found</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Classes</h2>
+
+        <div class="endpoint get">
+            <span class="method get">GET</span>
+            <span class="path">/api/classes</span>
+            <div class="description">
+                <p>Get a list of all classes.</p>
+                
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> List of classes returned successfully</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint post">
+            <span class="method post">POST</span>
+            <span class="path">/api/classes</span>
+            <div class="description">
+                <p>Create a new class.</p>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">id</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Class ID (e.g., "CS101")</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">capacity</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Maximum number of students</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">teacher_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>ID of the teacher teaching this class</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-201">201</span> Class created successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input / Class ID already exists</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint get">
+            <span class="method get">GET</span>
+            <span class="path">/api/classes/{class_id}</span>
+            <div class="description">
+                <p>Get a specific class by ID.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">class_id</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Class's unique identifier</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Class returned successfully</li>
+                    <li><span class="response-code code-404">404</span> Class not found</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint put">
+            <span class="method put">PUT</span>
+            <span class="path">/api/classes/{class_id}</span>
+            <div class="description">
+                <p>Update a specific class.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">class_id</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Class's unique identifier</td>
+                    </tr>
+                </table>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">capacity</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Maximum number of students</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">teacher_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>ID of the teacher teaching this class</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Class updated successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input</li>
+                    <li><span class="response-code code-404">404</span> Class not found</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint delete">
+            <span class="method delete">DELETE</span>
+            <span class="path">/api/classes/{class_id}</span>
+            <div class="description">
+                <p>Delete a specific class.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">class_id</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Class's unique identifier</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-204">204</span> Class deleted successfully</li>
+                    <li><span class="response-code code-404">404</span> Class not found</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Students</h2>
+
+        <div class="endpoint get">
+            <span class="method get">GET</span>
+            <span class="path">/api/students</span>
+            <div class="description">
+                <p>Get a list of all students.</p>
+                
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> List of students returned successfully</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint post">
+            <span class="method post">POST</span>
+            <span class="path">/api/students</span>
+            <div class="description">
+                <p>Create a new student.</p>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">name</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Student's name</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">email</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Student's email</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">grade</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Student's grade (between 1 and 12)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">class_id</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>ID of the class the student is enrolled in</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-201">201</span> Student created successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input / Email already exists / Class at capacity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint get">
+            <span class="method get">GET</span>
+            <span class="path">/api/students/{student_id}</span>
+            <div class="description">
+                <p>Get a specific student by ID.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">student_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Student's unique identifier</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Student returned successfully</li>
+                    <li><span class="response-code code-404">404</span> Student not found</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint put">
+            <span class="method put">PUT</span>
+            <span class="path">/api/students/{student_id}</span>
+            <div class="description">
+                <p>Update a specific student.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">student_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Student's unique identifier</td>
+                    </tr>
+                </table>
+                
+                <h4>Request Body</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">name</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Student's name</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">email</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Student's email</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">grade</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Student's grade (between 1 and 12)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="param">class_id</span></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>ID of the class the student is enrolled in</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-200">200</span> Student updated successfully</li>
+                    <li><span class="response-code code-400">400</span> Invalid input / Email already exists / Class at capacity</li>
+                    <li><span class="response-code code-404">404</span> Student not found</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="endpoint delete">
+            <span class="method delete">DELETE</span>
+            <span class="path">/api/students/{student_id}</span>
+            <div class="description">
+                <p>Delete a specific student.</p>
+                
+                <h4>Path Parameters</h4>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="param">student_id</span></td>
+                        <td>integer</td>
+                        <td>Yes</td>
+                        <td>Student's unique identifier</td>
+                    </tr>
+                </table>
+
+                <h4>Responses</h4>
+                <ul>
+                    <li><span class="response-code code-204">204</span> Student deleted successfully</li>
+                    <li><span class="response-code code-404">404</span> Student not found</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
