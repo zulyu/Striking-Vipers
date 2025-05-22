@@ -1,6 +1,6 @@
 # Striking Vipers
 
-An educational game platform to teach students the fundamentals of programmking in Python.
+An educational game platform to teach students the fundamentals of programming in Python.
 
 ## Features
 
