@@ -63,6 +63,8 @@ The game is deployed at:
 ```
 http://striking-vipers-game-2024.s3-website-us-east-1.amazonaws.com/login.html
 ```
+### Bug
+NOTE: Sign up does NOT work on the AWS version, only locally. Seems to pertain to a latency issue related to AWS.
 
 ### Test Account Credentials
 Use these credentials to log in:
