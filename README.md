@@ -1,6 +1,6 @@
 # Striking Vipers
 
-An educational game platform with teacher and student management.
+An educational game platform to teach students the fundamentals of programmking in Python.
 
 ## Features
 
@@ -9,8 +9,6 @@ An educational game platform with teacher and student management.
 - REST API with Swagger documentation
 - SQLite database integration
 - User authentication
-- Teacher and student management
-- Class management
 
 ## Installation and Setup
 
@@ -46,12 +44,21 @@ python3.10 run.py
 
 2. Access the Swagger API documentation at:
 ```
-http://localhost:5002/
+http://localhost:5002/api/
 ```
 
-## Accessing the Game
 
-### Online Version
+## Accessing the Log In Screen
+'''
+http://localhost:5002/login.html
+'''
+
+## Accessing the Game
+'''
+http://localhost:5002/game.html
+'''
+
+### Online AWS Web Version
 The game is deployed at:
 ```
 http://striking-vipers-game-2024.s3-website-us-east-1.amazonaws.com/login.html
@@ -78,9 +85,15 @@ source venv_py310/bin/activate
 export PYTHONPATH=$PYTHONPATH:$(pwd)
 ```
 
-3. Run the tests (unit and integration tests work 100%):
+3. Run the tests:
 ```bash
 pytest tests/unit/ tests/integration/
+```
+
+OR 
+
+```bash
+pytest
 ```
 
 
@@ -101,6 +114,9 @@ If you get an error "No module named 'jwt'", install PyJWT:
 pip install PyJWT
 ```
 
-## License
+### Missing Flask-Cors Module
+If you get an error "No module named 'flask_cors'", install Flask-Cors:
 
-This project is licensed under the MIT License.
+```bash
+pip install Flask-Cors
+```
