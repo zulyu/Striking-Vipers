@@ -220,8 +220,43 @@
     </div>
 
     <script>
+
         const API_URL = '/api';
         let isLoginForm = true;
+
+        // Add timeout handling with shorter initial timeout
+        const TIMEOUT_DURATION = 5000; // Reduced to 5 seconds for initial attempt
+        const MAX_RETRIES = 2; // Number of retries for failed requests
+
+        // Add connection optimization
+        const fetchWithRetry = async (url, options, retries = MAX_RETRIES) => {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_DURATION);
+                
+                const response = await fetch(url, {
+                    ...options,
+                    signal: controller.signal,
+                    mode: 'cors',
+                    credentials: 'include',
+                    headers: {
+                        ...options.headers,
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                clearTimeout(timeoutId);
+                return response;
+            } catch (error) {
+                if (retries > 0 && (error.name === 'AbortError' || error.name === 'TypeError')) {
+                    // Wait a bit before retrying
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    return fetchWithRetry(url, options, retries - 1);
+                }
+                throw error;
+            }
+        };
 
         // Form switching
         document.getElementById('switchForm').addEventListener('click', function(e) {
@@ -249,14 +284,21 @@
             document.getElementById('loginError').style.display = 'none';
             
             try {
+                // Create AbortController for timeout
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_DURATION);
+
                 // First try API login
                 const response = await fetch(`${API_URL}/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify({ email, password }),
+                    signal: controller.signal
                 });
+                
+                clearTimeout(timeoutId);
                 
                 if (response.ok) {
                     const data = await response.json();
@@ -298,6 +340,13 @@
                     }
                 }
             } catch (error) {
+                if (error.name === 'AbortError') {
+                    document.getElementById('loginError').textContent = 'Connection timed out. Please try again.';
+                } else {
+                    document.getElementById('loginError').textContent = 'Connection error. Please try again.';
+                }
+                document.getElementById('loginError').style.display = 'block';
+                
                 // If API is not available, try local test credentials
                 if (email === 'test@example.com' && password === 'password123') {
                     // Store test user info
@@ -317,9 +366,6 @@
                     setTimeout(() => {
                         window.location.href = 'game.html';
                     }, 1000);
-                } else {
-                    document.getElementById('loginError').textContent = 'Invalid credentials';
-                    document.getElementById('loginError').style.display = 'block';
                 }
             } finally {
                 document.getElementById('loginLoading').style.display = 'none';
@@ -330,11 +376,16 @@
         document.getElementById('signupForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            // Show loading indicator
+            document.getElementById('signupLoading').style.display = 'block';
+            document.getElementById('signupError').style.display = 'none';
+            
             // Validate password format
             const password = document.getElementById('signupPassword').value;
             if (password.length < 8 || !/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
                 document.getElementById('signupError').textContent = 'Password must be at least 8 characters and include both letters and numbers';
                 document.getElementById('signupError').style.display = 'block';
+                document.getElementById('signupLoading').style.display = 'none';
                 return;
             }
             
@@ -346,19 +397,16 @@
                 if (!classCodeRegex.test(classCode)) {
                     document.getElementById('signupError').textContent = 'Class code must be 2-3 letters followed by 3-4 numbers (e.g., CS101)';
                     document.getElementById('signupError').style.display = 'block';
+                    document.getElementById('signupLoading').style.display = 'none';
                     return;
                 }
             }
             
-            // Continue with existing signup logic
             const name = document.getElementById('signupName').value;
             const email = document.getElementById('signupEmail').value;
             
-            document.getElementById('signupLoading').style.display = 'block';
-            document.getElementById('signupError').style.display = 'none';
-            
             try {
-                const response = await fetch(`${API_URL}/auth/signup`, {
+                const response = await fetchWithRetry(`${API_URL}/auth/signup`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -372,11 +420,18 @@
                     })
                 });
                 
-                const data = await response.json();
-                
                 if (response.ok) {
+                    const data = await response.json();
+                    // Store user info if available
+                    if (data.user) {
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                    }
+                    
                     document.getElementById('signupSuccess').textContent = 'Signup successful! Please login.';
                     document.getElementById('signupSuccess').style.display = 'block';
+                    
+                    // Clear the signup form
+                    document.getElementById('signupForm').reset();
                     
                     // Switch back to login form after successful signup
                     setTimeout(() => {
@@ -385,14 +440,46 @@
                         document.getElementById('signupForm').style.display = 'none';
                         document.getElementById('switchForm').textContent = 'Sign Up';
                         document.getElementById('loginText').textContent = "Don't have an account? ";
+                        
+                        // Pre-fill the login form with the email used for signup
                         document.getElementById('email').value = email;
                     }, 2000);
                 } else {
-                    document.getElementById('signupError').textContent = data.message || 'Signup failed';
+                    const errorData = await response.json();
+                    let errorMessage = 'Signup failed. Please try again.';
+                    
+                    if (errorData.message) {
+                        if (errorData.message.includes('already exists')) {
+                            errorMessage = 'An account with this email already exists. Please login instead.';
+                            // Switch to login form after a delay
+                            setTimeout(() => {
+                                isLoginForm = true;
+                                document.getElementById('loginForm').style.display = 'block';
+                                document.getElementById('signupForm').style.display = 'none';
+                                document.getElementById('switchForm').textContent = 'Sign Up';
+                                document.getElementById('loginText').textContent = "Don't have an account? ";
+                                // Pre-fill the login form
+                                document.getElementById('email').value = email;
+                            }, 3000);
+                        } else {
+                            errorMessage = errorData.message;
+                        }
+                    }
+                    
+                    document.getElementById('signupError').textContent = errorMessage;
                     document.getElementById('signupError').style.display = 'block';
                 }
             } catch (error) {
-                document.getElementById('signupError').textContent = 'An error occurred. Please try again.';
+                console.error('Signup error:', error);
+                let errorMessage = 'An error occurred. Please try again.';
+                
+                if (error.name === 'AbortError') {
+                    errorMessage = 'Connection timed out. Please try again.';
+                } else if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                    errorMessage = 'Unable to connect to the server. Please try again later.';
+                }
+                
+                document.getElementById('signupError').textContent = errorMessage;
                 document.getElementById('signupError').style.display = 'block';
             } finally {
                 document.getElementById('signupLoading').style.display = 'none';
