@@ -118,3 +118,72 @@ If you get an error "No module named 'flask_cors'", install Flask-Cors:
 ```bash
 pip install Flask-Cors
 ```
+
+
+# Personal Project Implementation and Equivalence to DTA
+We are satisfying the Digital Therapy Assistant
+App Implementation through:
+
+1. Three tier architecture
+Frontend (UI Layer):
+- /web_build/ - React frontend
+- /app/static/ - Static assets
+- /app/templates/ - HTML templates
+
+Application Layer:
+- /app/api/ - API endpoints
+- /app/game/ - Game logic
+- /app/auth/ - Authentication
+
+Data Layer:
+- /app/models.py - Database models
+- game.db - SQLite database
+- /migrations/ - Database migrations
+
+2. Microservice implementation
+Services:
+Authentication Service (/app/auth/)
+  - Login
+  - Signup
+  - Token validation
+Game Service (/app/game/)
+  - TypingGame
+  - DraggingGame
+  - MatchingGame
+User Management Service (/app/api/)
+  - Teacher management
+  - Student management
+  - Class management
+
+3. UI Implementation
+Framework: Pygame
+- Login Screen
+ - Credential inputs
+ - Log in button
+- Level Selection Screen
+ - Typing Game button
+ - Dragging Game button
+ - Matching Game button
+- Matching Game Screen
+- Typing Game Screen
+- Dragging Game Screen
+
+4. API implementation
+- Log in endpoint
+- Sign Up endpoint
+- Teacher management endpoints
+- Student management endpoints
+
+5. Server-side project implementation
+- Pygame game engine
+- SQLite database integration
+- Authentication system
+- Matching game logic
+- Web deployment support
+
+6. Database persistence
+- SQLite database
+- Students table
+- Teachers table
+- User authentication
+
