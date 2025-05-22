@@ -67,9 +67,7 @@ http://striking-vipers-game-2024.s3-website-us-east-1.amazonaws.com/login.html
 ### Test Account Credentials
 Use these credentials to log in:
 - Email: test@example.com
-- Username: testuser
 - Password: password123
-- Class Code: CS101
 
 ## Running Tests
 
